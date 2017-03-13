@@ -49,6 +49,37 @@ Decode windows event to key-value result.
 * 5158 - he Windows Filtering Platform has permitted a bind to a local port
 
 
+## Example
+Event 5154:
+```
+Application Information:
+
+   Process ID:  1647
+   Application Name: \device\harddiskvolume1\windows\system32\dns.exe
+
+Network Information:
+
+   Source Address:  192.168.5.3
+   Source Port: 1999
+   Protocol:  6
+
+Filter Information:
+
+   Filter Run-Time ID: 14411
+   Layer Name:  Listen
+   Layer Run-Time ID: 36
+```
+will be converted to a Map object:
+```
+procesId: "1647"
+applicationName: "\device\harddiskvolume1\windows\system32\dns.exe"
+sourceAddress: "192.168.5.3"
+sourcePort: "1999"
+protocol: "6"
+filterRunTimeId: "14411"
+layerName: "Listen"
+layerRunTimeId: "36"
+```
 
 ## Maven
 pom.xml in your project:
@@ -59,6 +90,10 @@ pom.xml in your project:
     <version>0.0.1</version>
 </dependency>
 ```
+
+## External links
+[Ultimate Windows Security](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
+
 
 ## Copyright and License
 
