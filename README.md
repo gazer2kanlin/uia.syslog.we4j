@@ -7,6 +7,50 @@ UIA Windows Event Parser
 
 Decode windows event to key-value result.
 
+
+## Locale Supported
+
+* en_US - English
+
+* zh_TW - Traditional Chinese
+
+## Event Supported
+
+* 1105 - Event log automatic backup
+
+* 4624 - An account was successfully logged on
+
+* 4625 - An account failed to log on
+
+* 4634 - An account was logged off
+
+* 4648 - A logon was attempted using explicit credentials
+
+* 4656 - A handle to an object was requested
+
+* 4658 - The handle to an object was closed
+
+* 4663 - An attempt was made to access an object
+
+* 4672 - Special privileges assigned to new logon
+
+* 4690 - An attempt was made to duplicate a handle to an object
+
+* 4702 - A scheduled task was updated
+
+* 4776 - The domain controller attempted to validate the credentials for an account
+
+* 4985 - A logon was attempted using explicit credentials
+
+* 5154 - The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections
+
+* 5156 - The Windows Filtering Platform has allowed a connection
+
+* 5158 - he Windows Filtering Platform has permitted a bind to a local port
+
+
+
+## Maven
 pom.xml in your project:
 ```
 <dependency>
