@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowsEvents>
+    <WindowsEvent id="1105" desc="Event log automatic backup">
+        <Property id="log" dataType="String"></Property>
+        <Property id="file" dataType="String"></Property>
+    </WindowsEvent>
+
+    <WindowsEvent id="4624" desc="An account was successfully logged on">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="logonInformation" required="false">
+            <Property id="logonType" dataType="String"></Property>
+            <Property id="restrictedAdminMode" dataType="String"></Property>
+            <Property id="virtualAccount" dataType="String"></Property>
+            <Property id="elevatedToken" dataType="String"></Property>
+        </PropertySet>
+        <Property id="logonType" dataType="String" required="false"></Property>
+        <Property id="impersonationLevel" dataType="String" required="false"></Property>
+        <PropertySet id="newLogon">
+            <Property id="newSecurityId" dataType="String"></Property>
+            <Property id="newAccountName" dataType="String"></Property>
+            <Property id="newAccountDomain" dataType="String"></Property>
+            <Property id="newLogonId" dataType="String"></Property>
+            <Property id="linkedLogonId" dataType="String" required="false"></Property>
+            <Property id="networkAccountName" dataType="String" required="false"></Property>
+            <Property id="networkAccountDomain" dataType="String" required="false"></Property>
+            <Property id="newLogonGUID" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="workstationName" dataType="String"></Property>
+            <Property id="sourceNetworkAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+        </PropertySet>
+        <PropertySet id="detailedAuthenticationInformation">
+            <Property id="logonProcess" dataType="String"></Property>
+            <Property id="authenticationPackage" dataType="String"></Property>
+            <Property id="transitedServices" dataType="String"></Property>
+            <Property id="packageNameNTLMOnly" dataType="String"></Property>
+            <Property id="keyLength" dataType="Int" splitStr=" "></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4625" desc="An account failed to log on">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <Property id="logonType" dataType="String"></Property>
+        <PropertySet id="accountForWhichLogonFailed">
+            <Property id="failedSecurityId" dataType="String"></Property>
+            <Property id="failedAccountName" dataType="String"></Property>
+            <Property id="failedAccountDomain" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="failureInformation">
+            <Property id="failureReason" dataType="String"></Property>
+            <Property id="failureStatus" dataType="String"></Property>
+            <Property id="failureSubStatus" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="callerProcessId" dataType="String"></Property>
+            <Property id="callerProcessName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="workstationName" dataType="String"></Property>
+            <Property id="sourceNetworkAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+        </PropertySet>
+        <PropertySet id="detailedAuthenticationInformation">
+            <Property id="logonProcess" dataType="String"></Property>
+            <Property id="authenticationPackage" dataType="String"></Property>
+            <Property id="transitedServices" dataType="String"></Property>
+            <Property id="packageNameNTLMOnly" dataType="String" ignore="true"></Property>
+            <Property id="keyLength" dataType="Int" ignore="true"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4634" desc="An account was logged off">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+            <Property id="logonType" dataType="String" splitStr=" "></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4648" desc="A logon was attempted using explicit credentials">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+            <Property id="logonGuid" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="accountWhoseCredentialsWereUsed">
+            <Property id="credentialsAccountName" dataType="String"></Property>
+            <Property id="credentialsAccountDomain" dataType="String"></Property>
+            <Property id="credentialsLogonGuid" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="targetServer">
+            <Property id="targetServerName" dataType="String"></Property>
+            <Property id="additionalInformation" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="networkAddress" dataType="String"></Property>
+            <Property id="port" dataType="Int"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4656" desc="A handle to an object was requested">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="object">
+            <Property id="objectServer" dataType="String"></Property>
+            <Property id="objectType" dataType="String"></Property>
+            <Property id="objectName" dataType="String"></Property>
+            <Property id="handleId" dataType="String"></Property>
+            <Property id="resourceAttributes" dataType="String" required="false"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="accessRequestInformation">
+            <Property id="transactionId" dataType="String"></Property>
+            <Property id="accesses" dataType="String"></Property>
+            <Property id="accessReasons" dataType="String"></Property>
+            <Property id="accessMask" dataType="String"></Property>
+            <Property id="privilegesUsedForAccessCheck" dataType="String"></Property>
+            <Property id="restrictedSIDCount" dataType="Int"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4658" desc="The handle to an object was closed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="object">
+            <Property id="objectServer" dataType="String"></Property>
+            <Property id="handleId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4663" desc="An attempt was made to access an object">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="object">
+            <Property id="objectServer" dataType="String"></Property>
+            <Property id="objectType" dataType="String"></Property>
+            <Property id="objectName" dataType="String"></Property>
+            <Property id="handleId" dataType="String"></Property>
+            <Property id="resourceAttributes" dataType="String" required="false"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="accessRequestInformation">
+            <Property id="accesses" dataType="String"></Property>
+            <Property id="accessMask" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="4672" desc="Special privileges assigned to new logon">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <Property id="privileges" dataType="String"></Property>
+    </WindowsEvent>
+
+    <WindowsEvent id="4690" desc="An attempt was made to duplicate a handle to an object">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="sourceHandleInformation">
+            <Property id="sourceHandleId" dataType="String"></Property>
+            <Property id="sourceProcessId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="newHandleInformation">
+            <Property id="targetHandleId" dataType="String"></Property>
+            <Property id="targetProcessId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4702" desc="A scheduled task was updated">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="taskInformation">
+            <Property id="taskName" dataType="String"></Property>
+            <Property id="taskNewContent" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4776" desc="The domain controller attempted to validate the credentials for an account">
+        <Property id="authenticationPackage" dataType="String"></Property>
+        <Property id="logonAccount" dataType="String"></Property>
+        <Property id="sourceWorkstation" dataType="String"></Property>
+        <Property id="errorCode" dataType="String"></Property>
+    </WindowsEvent>
+
+    <WindowsEvent id="4985" desc="A logon was attempted using explicit credentials">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+            <Property id="logonGuid" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="transactionInformation">
+            <Property id="rmTransactionId" dataType="String"></Property>
+            <Property id="newState" dataType="String"></Property>
+            <Property id="resourceManager" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="5154" desc="The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections">
+        <PropertySet id="applicationInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="applicationName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="sourceAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+            <Property id="protocol" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="filterInformation">
+            <Property id="filterRunTimeId" dataType="String"></Property>
+            <Property id="layerName" dataType="String"></Property>
+            <Property id="layerRunTimeId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5156" desc="The Windows Filtering Platform has allowed a connection">
+        <PropertySet id="applicationInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="applicationName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="direction" dataType="String"></Property>
+            <Property id="sourceAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+            <Property id="destinationAddress" dataType="String"></Property>
+            <Property id="destinationPort" dataType="Int"></Property>
+            <Property id="protocol" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="filterInformation">
+            <Property id="filterRunTimeId" dataType="String"></Property>
+            <Property id="layerName" dataType="String"></Property>
+            <Property id="layerRunTimeId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5158" desc="The Windows Filtering Platform has permitted a bind to a local port">
+        <PropertySet id="applicationInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="applicationName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="sourceAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+            <Property id="protocol" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="filterInformation">
+            <Property id="filterRunTimeId" dataType="String"></Property>
+            <Property id="layerName" dataType="String"></Property>
+            <Property id="layerRunTimeId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5446" desc="A Windows Filtering Platform callout has been changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="providerInformation">
+            <Property id="providerId2" name="providerId" dataType="String"></Property>
+            <Property id="providerName2" name="providerName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="changeInformation">
+            <Property id="changeType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="calloutInformation">
+            <Property id="calloutId2" name="calloutId" dataType="String"></Property>
+            <Property id="calloutName2" name="calloutName" dataType="String"></Property>
+            <Property id="calloutType2" name="calloutType" dataType="String"></Property>
+            <Property id="calloutRunTimeId2" name="calloutRunTimeId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="layerInformation">
+            <Property id="layerId2" name="layerId" dataType="String"></Property>
+            <Property id="layerName2" name="layerName" dataType="String"></Property>
+            <Property id="layerRunTimeId2" name="layerRunTimeId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5447" desc="A Windows Filtering Platform filter has been changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="providerInformation">
+            <Property id="providerId2" name="providerId" dataType="String"></Property>
+            <Property id="providerName2" name="providerName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="changeInformation">
+            <Property id="changeType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="filterInformation">
+            <Property id="filterId2" name="filterId" dataType="String"></Property>
+            <Property id="filterName2" name="filterName" dataType="String"></Property>
+            <Property id="filterType2" name="filterType" dataType="String"></Property>
+            <Property id="filterRunTimeId2" name="filterRunTimeId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="layerInformation">
+            <Property id="layerId2" name="layerId" dataType="String"></Property>
+            <Property id="layerName2" name="layerName" dataType="String"></Property>
+            <Property id="layerRunTimeId2" name="layerRunTimeId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="calloutInformation">
+            <Property id="calloutId2" name="calloutId" dataType="String"></Property>
+            <Property id="calloutName2" name="calloutName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="additionalInformation">
+            <Property id="weight" dataType="String"></Property>
+            <Property id="condition" dataType="String"></Property>
+            <Property id="filterAction" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5448" desc="A Windows Filtering Platform provider has been changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="changeInformation">
+            <Property id="changeType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="providerInformation">
+            <Property id="providerId2" name="providerId" dataType="String"></Property>
+            <Property id="providerName2" name="providerName" dataType="String"></Property>
+            <Property id="providerType2" name="providerType" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5450" desc=" A Windows Filtering Platform sub-layer has been changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="providerInformation">
+            <Property id="providerId" dataType="String"></Property>
+            <Property id="providerName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="changeInformation">
+            <Property id="changeType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="subLayerInformation">
+            <Property id="subLayerId" dataType="String"></Property>
+            <Property id="subLayerName" dataType="String"></Property>
+            <Property id="subLayerType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="additionalInformation">
+            <Property id="weight" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+</WindowsEvents>

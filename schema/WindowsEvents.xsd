@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:uia="http://we.syslog.uia/model/xml"
+        targetNamespace="http://we.syslog.uia/model/xml"
+        elementFormDefault="qualified"
+        version="1.0">
+    
+    <element name="WindowsEvents" type="uia:WindowsEventsType" nillable="true" />
+
+    <complexType name="WindowsEventsType" mixed="false">
+        <sequence>
+            <choice maxOccurs="unbounded">
+                <element name="WindowsEvent" type="uia:WindowsEventType"></element>
+            </choice>
+        </sequence>
+    </complexType>
+
+    <complexType name="WindowsEventType">
+        <sequence>
+            <choice maxOccurs="unbounded">
+		        <element name="PropertySet" type="uia:PropertySetType"></element>
+        		<element name="Property" type="uia:PropertyType"></element>
+            </choice>
+        </sequence>
+        <attribute name="id" type="string" use="required" />
+        <attribute name="name" type="string" use="required" />
+        <attribute name="desc" type="string" />
+    </complexType>
+
+    <complexType name="AbstractPropertyType" abstract="true">
+        <attribute name="id" type="string" use="required" />
+        <attribute name="required" type="boolean" default="true" />
+    </complexType>
+    <complexType name="PropertySetType">
+        <complexContent>
+            <extension base="uia:AbstractPropertyType">
+                <sequence>
+                    <choice maxOccurs="unbounded">
+				        <element name="PropertySet" type="uia:PropertySetType"></element>
+		        		<element name="Property" type="uia:PropertyType"></element>
+                    </choice>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PropertyType">
+        <complexContent>
+            <extension base="uia:AbstractPropertyType">
+		        <attribute name="name" type="string" />
+		        <attribute name="dataType" type="string" use="required" />
+		        <attribute name="ignore" type="boolean" default="false" />
+		        <attribute name="valueIndex" type="int" default="0" />
+		        <attribute name="splitStr" type="string" default="" />
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

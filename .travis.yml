@@ -1,0 +1,18 @@
+---
+language: java
+
+script:
+  - mvn test -f ./pom.xml
+  - mvn cobertura:cobertura -f ./pom.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk6
+  
+branches:
+  only:
+  - master
