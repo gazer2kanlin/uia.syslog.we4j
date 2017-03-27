@@ -3,9 +3,54 @@ package uia.syslog.we;
 import java.util.Locale;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class WindowsEventSampleTest extends WindowsEventTest {
+	
+	@Test
+	public void test001() throws Exception{
+		String content = "File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx " +
+				"File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx ";
+
+		try {
+			test("-001", content, Locale.US);
+			Assert.assertTrue(false);
+		}
+		catch(WindowsEventException ex) {
+			Assert.assertEquals("-001> 'file2' can't be translated.", ex.getMessage());
+		}
+	}
+	
+	@Test
+	public void test002() throws Exception{
+		String content = "Subject: " + 
+				"File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx " + 
+				"Subject: " + 
+				"File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx ";
+
+		try {
+			test("-002", content, Locale.US);
+			Assert.assertTrue(false);
+		}
+		catch(WindowsEventException ex) {
+			Assert.assertEquals("-002> 'subject2' can't be translated.", ex.getMessage());
+		}
+	}
+	
+	@Test
+	public void test003() throws Exception{
+		String content = "Subject: " + 
+				"Logon Information: " + 
+				"Logon Type: 3 ";
+
+		try {
+			Map<String, Object> result = test("-003", content, Locale.US);
+			Assert.assertEquals("3", result.get("logonType"));
+		}
+		catch(WindowsEventException ex) {
+		}
+	}
 	
 	@Test
 	public void test() throws Exception {

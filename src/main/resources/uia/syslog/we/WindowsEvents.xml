@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WindowsEvents>
+    <WindowsEvent id="-001" desc="Test only">
+        <Property id="file1" translate="file" dataType="String"></Property>
+        <Property id="file2" dataType="String"></Property>
+    </WindowsEvent>
+    <WindowsEvent id="-002" desc="Test only">
+        <PropertySet id="subject1" translate="subject">
+	        <Property id="file1" translate="file" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="subject2">
+    	    <Property id="file2" translate="file" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    <WindowsEvent id="-003" desc="Test only">
+        <PropertySet id="subject" translate="subject">
+	        <PropertySet id="logonInformation" required="false">
+	            <Property id="logonType" dataType="String"></Property>
+	        </PropertySet>
+        </PropertySet>
+    </WindowsEvent>
+
     <WindowsEvent id="1105" name="EVENTLOG_BACKUP" desc="Event log automatic backup">
         <Property id="log" dataType="String"></Property>
         <Property id="file" dataType="String"></Property>
