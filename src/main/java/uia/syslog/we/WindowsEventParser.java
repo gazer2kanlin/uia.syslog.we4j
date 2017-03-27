@@ -91,7 +91,7 @@ public class WindowsEventParser {
     }
 
     private void walk(PropertySetType propType) throws WindowsEventException {
-        String id = translate(propType.getId());
+        String id = translate(propType.getTranslate());
         if (id == null) {
             throw new WindowsEventException(this._event + "> '" + propType.getId() + "' can't be translated.");
         }
@@ -119,7 +119,7 @@ public class WindowsEventParser {
     }
 
     private void walk(PropertyType propType) throws WindowsEventException {
-        String id = translate(propType.getId());
+        String id = translate(propType.getTranslate());
         if (id == null) {
             throw new WindowsEventException(this._event + "> '" + propType.getId() + "' can't be translated.");
         }
@@ -136,24 +136,20 @@ public class WindowsEventParser {
 
     private void writeProperty(int valueEndIndex) throws WindowsEventException {
         String _value = this._content.substring(this._valueStartIndex, valueEndIndex).trim();
-        String propName = this._type.getName();
-        if (propName == null || propName.trim().length() == 0) {
-            propName = this._type.getId();
-        }
         if (!"".equals(this._type.getSplitStr())) {
             _value = _value.split(this._type.getSplitStr())[this._type.getValueIndex()];
         }
 
         if ("INT".equalsIgnoreCase(this._type.getDataType())) {
             try {
-                this.properties.put(propName.trim(), Integer.parseInt(_value));
+                this.properties.put(this._type.getId(), Integer.parseInt(_value));
             }
             catch (Exception ex) {
-                this.properties.put(propName.trim(), 0);
+                this.properties.put(this._type.getId(), 0);
             }
         }
         else {
-            this.properties.put(propName.trim(), _value);
+            this.properties.put(this._type.getId(), _value);
         }
     }
 

@@ -63,7 +63,7 @@ public class WindowsEventType {
     }
 
     public String getName() {
-        return this.name;
+        return this.name == null ? this.id : this.name;
     }
 
     public void setName(String value) {

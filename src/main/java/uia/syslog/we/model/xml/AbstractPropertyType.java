@@ -31,6 +31,9 @@ public abstract class AbstractPropertyType {
     protected String id;
 
     @Attribute(required = false)
+    protected String translate;
+
+    @Attribute(required = false)
     protected Boolean required;
 
     public String getId() {
@@ -38,7 +41,15 @@ public abstract class AbstractPropertyType {
     }
 
     public void setId(String value) {
-        this.id = value;
+        this.id = value.trim();
+    }
+
+    public String getTranslate() {
+        return this.translate == null || this.translate.trim().length() == 0 ? this.id : this.translate;
+    }
+
+    public void setTranslate(String value) {
+        this.translate = value.trim();
     }
 
     public boolean isRequired() {

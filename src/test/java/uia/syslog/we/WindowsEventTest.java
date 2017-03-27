@@ -15,7 +15,7 @@ public abstract class WindowsEventTest {
 		WindowsEventParser parser = new WindowsEventParser(locale);
 		Map<String, Object> result = parser.run(content, weType);
 
-		System.out.println(result);
+		System.out.println(weType.getId() + "(" + weType.getName() + ")> " + result);
 		validate(result);
 	}
 	

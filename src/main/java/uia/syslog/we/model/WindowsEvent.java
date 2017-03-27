@@ -18,8 +18,6 @@
  *******************************************************************************/
 package uia.syslog.we.model;
 
-import java.util.Date;
-
 /**
  * System log.
  *
@@ -27,14 +25,6 @@ import java.util.Date;
  *
  */
 public abstract class WindowsEvent {
-
-    // private String hostAddr;
-
-    private String hostName;
-
-    private String logInfo;
-
-    private Date timestamp;
 
     private String eventSource;
 
@@ -57,39 +47,5 @@ public abstract class WindowsEvent {
 
     public String getEventId() {
         return this.eventId;
-    }
-
-    public Date getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    /**
-    public String getHostAddr() {
-        return this.hostAddr;
-    }
-
-    public void setHostAddr(String hostAddr) {
-        this.hostAddr = hostAddr;
-    }
-    */
-
-    public String getHostName() {
-        return this.hostName;
-    }
-
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
-    }
-
-    public String getLogInfo() {
-        return this.logInfo;
-    }
-
-    public void setLogInfo(String logInfo) {
-        this.logInfo = logInfo;
     }
 }

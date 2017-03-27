@@ -27,9 +27,6 @@ import org.simpleframework.xml.Attribute;
  */
 public class PropertyType extends AbstractPropertyType {
 
-    @Attribute(required = false)
-    protected String name;
-
     @Attribute
     protected String dataType;
 
@@ -45,14 +42,6 @@ public class PropertyType extends AbstractPropertyType {
     public PropertyType() {
         this.dataType = "String";
         this.splitStr = "";
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String value) {
-        this.name = value;
     }
 
     public String getDataType() {
