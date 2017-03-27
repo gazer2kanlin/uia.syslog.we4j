@@ -12,17 +12,21 @@ Decode windows event to key-value result.
 
 * en_US - English
 
-* zh_TW - Traditional Chinese
+* zh_TW - Traditional Chinese (繁體中文)
 
-## Event Supported
+## Event Supported (current: 28)
 
 * 1105 - Event log automatic backup
+
+* 4611 - A trusted logon process has been registered with the Local Security Authority
 
 * 4624 - An account was successfully logged on
 
 * 4625 - An account failed to log on
 
 * 4634 - An account was logged off
+
+* 4647 - User initiated logoff
 
 * 4648 - A logon was attempted using explicit credentials
 
@@ -34,13 +38,25 @@ Decode windows event to key-value result.
 
 * 4672 - Special privileges assigned to new logon
 
+* 4673 - A privileged service was called
+
 * 4690 - An attempt was made to duplicate a handle to an object
 
 * 4702 - A scheduled task was updated
 
+* 4722 - A user account was enabled
+
+* 4725 - A user account was disabled
+
+* 4738 - A user account was changed
+
 * 4776 - The domain controller attempted to validate the credentials for an account
 
+* 4779 - A session was disconnected from a Window Station
+
 * 4985 - A logon was attempted using explicit credentials
+
+* 5152 - The Windows Filtering Platform blocked a packet
 
 * 5154 - The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections
 
@@ -48,14 +64,25 @@ Decode windows event to key-value result.
 
 * 5158 - he Windows Filtering Platform has permitted a bind to a local port
 
+* 5446 - A Windows Filtering Platform callout has been changed
+
+* 5447 - A Windows Filtering Platform filter has been changed
+
+* 5448 - A Windows Filtering Platform provider has been changed
+
+* 5450 - A Windows Filtering Platform sub-layer has been changed
+
 
 ## Example
-Event 5154:
-```
+
+Event: 5154
+
+#### English
+``` yaml
 Application Information:
 
    Process ID:  1647
-   Application Name: \device\harddiskvolume1\windows\system32\dns.exe
+   Application Name: dns.exe
 
 Network Information:
 
@@ -69,10 +96,45 @@ Filter Information:
    Layer Name:  Listen
    Layer Run-Time ID: 36
 ```
-will be converted to a Map object:
+
+#### Traditional Chinese (繁體中文)
+``` yaml
+應用程式資訊:
+
+    處理程序識別碼: 1648
+    應用程式名稱: dns.exe
+
+網路資訊:
+
+    來源位址: 192.168.5.3
+    來源連接埠: 1999
+    通訊協定:  6
+
+篩選器資訊:
+
+    篩選器執行階段識別碼: 14411
+    階層名稱:  Listen
+    階層執行階段識別碼: 36
 ```
+#### Java Code
+
+``` Java
+WindowsEventFactory factory = new WindowsEventFactory();
+WindowsEventType weType = factory.find("5154");
+
+// US
+WindowsEventParser parserUS = new WindowsEventParser(Loacle.US);
+Map<String, Object> resultUS = parser.run(contentUS, weType);
+
+// Traditional Chinese (繁體中文)
+WindowsEventParser parserTW = new WindowsEventParser(Loacle.TAIWAN);
+Map<String, Object> resultTW = parser.run(contentTW, weType);
+```
+
+#### Result
+``` yaml
 procesId: "1647"
-applicationName: "\device\harddiskvolume1\windows\system32\dns.exe"
+applicationName: "dns.exe"
 sourceAddress: "192.168.5.3"
 sourcePort: "1999"
 protocol: "6"
