@@ -80,8 +80,13 @@ public class WindowsEventSampleTest extends WindowsEventTest {
 		for(int i=0; i<data.length; i++) {
 			String id = data[i].substring(0, 4);
 			String content = data[i].substring(6);
-			test(id, content, Locale.TAIWAN);
+			Assert.assertTrue(test(id, content, Locale.TAIWAN).size() > 0);
 		}
 		
+	}
+
+	@Override
+	protected void validate(Map<String, Object> result) {
+		Assert.assertTrue(result.size() > 0);
 	}
 }

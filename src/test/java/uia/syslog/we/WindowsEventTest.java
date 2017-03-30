@@ -9,7 +9,7 @@ import uia.syslog.we.model.xml.WindowsEventType;
 
 public abstract class WindowsEventTest {
 	
-	protected Map<String, Object> test(String id, String content, Locale locale) throws Exception{
+	protected Map<String, Object> test(String id, String content, Locale locale) throws Exception {
 		WindowsEventFactory factory = new WindowsEventFactory();
 		WindowsEventType weType = factory.find(id);
 		WindowsEventParser parser = new WindowsEventParser(locale);
@@ -21,6 +21,5 @@ public abstract class WindowsEventTest {
 		return result;
 	}
 	
-	protected void validate(Map<String, Object> result) {
-	}
+	protected abstract void validate(Map<String, Object> result);
 }
