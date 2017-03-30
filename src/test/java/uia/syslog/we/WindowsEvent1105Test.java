@@ -13,7 +13,7 @@ public class WindowsEvent1105Test extends WindowsEventTest {
 		String content = "Log: Security " + 
 					"File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx";
 		
-		test("1105", content, Locale.US);
+		Assert.assertNotNull(test("1105", content, Locale.US));
 	}
 
 	@Test
@@ -21,7 +21,7 @@ public class WindowsEvent1105Test extends WindowsEventTest {
 		String content = "記錄檔: Security " + 
 				"檔案: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx";
 		
-		test("1105", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("1105", content, Locale.TAIWAN));
 	}
 	
 	@Override

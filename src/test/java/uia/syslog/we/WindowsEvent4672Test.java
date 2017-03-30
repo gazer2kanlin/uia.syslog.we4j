@@ -19,7 +19,7 @@ public class WindowsEvent4672Test extends WindowsEventTest {
 				"SeSecurityPrivilege " + 
 				"SeTakeOwnershipPrivilege ";
 		
-		test("4672", content, Locale.US);
+		Assert.assertNotNull(test("4672", content, Locale.US));
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class WindowsEvent4672Test extends WindowsEventTest {
 				"SeSecurityPrivilege " + 
 				"SeTakeOwnershipPrivilege ";
 		
-		test("4672", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4672", content, Locale.TAIWAN));
 	}
 	
 	@Override

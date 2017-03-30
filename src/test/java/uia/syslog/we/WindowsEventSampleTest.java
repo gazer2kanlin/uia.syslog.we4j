@@ -84,7 +84,4 @@ public class WindowsEventSampleTest extends WindowsEventTest {
 		}
 		
 	}
-
-	protected void validate(Map<String, Object> result) {	
-	}
 }

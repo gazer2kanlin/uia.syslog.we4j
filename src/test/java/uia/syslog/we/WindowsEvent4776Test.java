@@ -15,7 +15,7 @@ public class WindowsEvent4776Test extends WindowsEventTest {
 				"Source Workstation: WIN-R9H529RIO4Y" + 
 				"Error Code: 0xc0000064";
 		
-		test("4776", content, Locale.US);
+		Assert.assertNotNull(test("4776", content, Locale.US));
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class WindowsEvent4776Test extends WindowsEventTest {
 				"來源工作站: WIN-R9H529RIO4Y" + 
 				"錯誤碼: 0xc0000064";
 		
-		test("4776", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4776", content, Locale.TAIWAN));
 	}
 	
 	@Override

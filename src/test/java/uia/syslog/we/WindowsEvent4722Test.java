@@ -20,7 +20,7 @@ public class WindowsEvent4722Test extends WindowsEventTest {
 				"Account Name:  Jack " +
 				"Account Domain:  MAIN";
 
-        test("4722", content, Locale.US);
+		Assert.assertNotNull(test("4722", content, Locale.US));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class WindowsEvent4722Test extends WindowsEventTest {
 				"帳戶名稱:  Jack " +
 				"帳戶網域:  MAIN ";
 
-        test("4722", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4722", content, Locale.TAIWAN));
     }
 
     @Override

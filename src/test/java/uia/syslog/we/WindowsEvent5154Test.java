@@ -22,7 +22,7 @@ public class WindowsEvent5154Test extends WindowsEventTest {
                 "Layer Name:  Listen " +
                 "Layer Run-Time ID: 40 ";
 
-        test("5154", content, Locale.US);
+        Assert.assertNotNull(test("5154", content, Locale.US));
     }
 
     @Test

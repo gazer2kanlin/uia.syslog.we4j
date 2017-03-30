@@ -19,7 +19,7 @@ public class WindowsEvent4702Test extends WindowsEventTest {
 				"Task Name: NiteWork" +
 				"Task Content: <html><body>\"good\" &nsbp <hr /></body></html>";
 		
-		test("4702", content, Locale.US);
+		Assert.assertNotNull(test("4702", content, Locale.US));
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class WindowsEvent4702Test extends WindowsEventTest {
 				"工作名稱: NiteWork" +
 				"工作新內容: <html><body>\"good\" &nsbp <hr /></body></html>";
 		
-		test("4702", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4702", content, Locale.TAIWAN));
 	}
 	
 	@Override

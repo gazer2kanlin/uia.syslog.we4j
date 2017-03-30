@@ -17,7 +17,7 @@ public class WindowsEvent4634Test extends WindowsEventTest {
 				"Logon ID:  0x149be " + 
 				"Logon Type: 3 This means something is special";
 		
-		test("4634", content, Locale.US);
+		Assert.assertNotNull(test("4634", content, Locale.US));
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class WindowsEvent4634Test extends WindowsEventTest {
 				"登入識別碼:  0x149be " +
 				"登入類型: 3 登入工作階段損毀時，就會產生這個事件。";
 		
-		test("4634", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4634", content, Locale.TAIWAN));
 	}
 	
 	@Override

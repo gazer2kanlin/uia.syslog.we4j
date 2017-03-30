@@ -25,7 +25,7 @@ public class WindowsEvent5152Test extends WindowsEventTest {
                 "Layer Name:  Listen " +
                 "Layer Run-Time ID: 40 ";
 
-        test("5152", content, Locale.US);
+        Assert.assertNotNull(test("5152", content, Locale.US));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class WindowsEvent5152Test extends WindowsEventTest {
                 "階層名稱:  Listen " +
                 "階層執行階段識別碼: 40 ";
 
-        test("5152", content, Locale.TAIWAN);
+        Assert.assertNotNull(test("5152", content, Locale.TAIWAN));
     }
 
     @Override

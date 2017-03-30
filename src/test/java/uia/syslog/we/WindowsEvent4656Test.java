@@ -34,7 +34,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "Privileges Used for Access Check: - " +
                 "Restricted SID Count: 0 ";
 
-        test("4656", content, Locale.US);
+        Assert.assertNotNull(test("4656", content, Locale.US));
     }
 
     @Test

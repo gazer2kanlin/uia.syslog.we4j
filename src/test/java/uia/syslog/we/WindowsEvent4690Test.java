@@ -22,7 +22,7 @@ public class WindowsEvent4690Test extends WindowsEventTest {
 				"Target Handle ID: 0x301d" +
 				"Target Process ID: 0x31ff ";
 		
-		test("4690", content, Locale.US);
+		Assert.assertNotNull(test("4690", content, Locale.US));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class WindowsEvent4690Test extends WindowsEventTest {
 				"目標控制代碼識別碼: 0x301d" +
 				"目標處理程序識別碼: 0x31ff ";
 		
-		test("4690", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4690", content, Locale.TAIWAN));
 	}
 	
 	@Override

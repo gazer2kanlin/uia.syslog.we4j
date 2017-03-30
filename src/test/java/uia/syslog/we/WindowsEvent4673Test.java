@@ -24,7 +24,7 @@ public class WindowsEvent4673Test extends WindowsEventTest {
 				"Service Request Information: " +
 				"Privileges:  SeTcbPrivilege ";
 
-        test("4673", content, Locale.US);
+		Assert.assertNotNull(test("4673", content, Locale.US));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class WindowsEvent4673Test extends WindowsEventTest {
 				"Service Request Information: " +
 				"特殊權限:  SeTcbPrivilege ";
 
-        test("4673", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4673", content, Locale.TAIWAN));
     }
 
     @Override

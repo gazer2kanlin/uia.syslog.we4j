@@ -30,7 +30,7 @@ public class WindowsEvent4648Test extends WindowsEventTest {
 				"Network Address: 0.0.0.0 " +
 				"Port: 514 ";
 		
-		test("4648", content, Locale.US);
+		Assert.assertNotNull(test("4648", content, Locale.US));
 	}
 
 	@Test
@@ -55,7 +55,7 @@ public class WindowsEvent4648Test extends WindowsEventTest {
 				"網路位址: 0.0.0.0 " +
 				"連接埠: 514 ";
 		
-		test("4648", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4648", content, Locale.TAIWAN));
 	}
 
 	@Override

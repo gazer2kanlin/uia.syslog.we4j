@@ -41,7 +41,7 @@ public class WindowsEvent4738Test extends WindowsEventTest {
 				"Additional Information: " + 
 				"Privileges: NO";
 
-        test("4738", content, Locale.US);
+		Assert.assertNotNull(test("4738", content, Locale.US));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class WindowsEvent4738Test extends WindowsEventTest {
 				"其他資訊: " + 
 				"特殊權限: NO";
 
-        test("4738", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4738", content, Locale.TAIWAN));
     }
 
     @Override

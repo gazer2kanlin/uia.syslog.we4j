@@ -17,7 +17,7 @@ public class WindowsEvent4611Test extends WindowsEventTest {
 				"Logon ID:  0x1f41e " +
 				"Logon Process Name:  MAIN";
 
-        test("4611", content, Locale.US);
+		Assert.assertNotNull(test("4611", content, Locale.US));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class WindowsEvent4611Test extends WindowsEventTest {
 				"登入識別碼:  0x1f41e " +
 				"登入處理程序名稱:  MAIN ";
 
-        test("4611", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4611", content, Locale.TAIWAN));
     }
 
     @Override

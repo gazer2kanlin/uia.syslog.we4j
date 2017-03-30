@@ -22,7 +22,7 @@ public class WindowsEvent4658Test extends WindowsEventTest {
 				"Process ID: 0x1ac " +
 				"Process Name: C:\\Windows\\System32\\cmd.exe ";
 		
-		test("4658", content, Locale.US);
+		Assert.assertNotNull(test("4658", content, Locale.US));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class WindowsEvent4658Test extends WindowsEventTest {
 				"處理程序識別碼: 0x1ac " +
 				"處理程序名稱: C:\\Windows\\System32\\cmd.exe ";
 		
-		test("4658", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4658", content, Locale.TAIWAN));
 	}
 	
 	@Override

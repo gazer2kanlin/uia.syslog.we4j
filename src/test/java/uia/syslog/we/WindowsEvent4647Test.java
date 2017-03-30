@@ -29,7 +29,7 @@ public class WindowsEvent4647Test extends WindowsEventTest {
 				"登入識別碼:  0x1f41e " +
 				"This event is generated when a logoff ...";
 
-        test("4647", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4647", content, Locale.TAIWAN));
     }
 
     @Override

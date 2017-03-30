@@ -1,6 +1,7 @@
 UIA Windows Event Parser
 ================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c48a821f715549adafca7dd853fc71eb)](https://www.codacy.com/app/gazer2kanlin/uia-syslog-we4j?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gazer2kanlin/uia.syslog.we4j&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/gazer2kanlin/uia.syslog.we4j.svg?branch=master)](https://travis-ci.org/gazer2kanlin/uia.syslog.we4j)
 [![Codecov](https://img.shields.io/codecov/c/github/gazer2kanlin/uia.syslog.we4j.svg)](https://codecov.io/gh/gazer2kanlin/uia.syslog.we4j)
 [![License](https://img.shields.io/github/license/gazer2kanlin/uia.syslog.we4j.svg)](LICENSE)

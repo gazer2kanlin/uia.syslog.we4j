@@ -45,7 +45,7 @@ public class WindowsEvent4624Test extends WindowsEventTest {
 				"Package Name (NTLM only): NTLM V2 " + 
 				"Key Length: 128 Something special";
 		
-		test("4624", content, Locale.US);
+		Assert.assertNotNull(test("4624", content, Locale.US));
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class WindowsEvent4624Test extends WindowsEventTest {
 				"Package Name (NTLM only): NTLM V2 " + 
 				"Key Length: 128 Something special";
 		
-		test("4624", content, Locale.US);
+		Assert.assertNotNull(test("4624", content, Locale.US));
 	}
 
 	@Test
@@ -113,7 +113,7 @@ public class WindowsEvent4624Test extends WindowsEventTest {
 				"封裝名稱 (僅限 NTLM): NTLM V2 " + 
 				"金鑰長度: 128 當建立登入工作階段的時候，就會產生這個事件。它在被存取的電腦上產生。 主旨欄位顯示要求登入的本機系統上的帳戶。這通常是發生在服務 (例如伺服器服務) 或是本機處理程序 (例如 Winlogon.exe 或 Services.exe)。 登錄類型欄位顯示?*<";
 		
-		test("4624", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4624", content, Locale.TAIWAN));
 	}
 	
 	@Override

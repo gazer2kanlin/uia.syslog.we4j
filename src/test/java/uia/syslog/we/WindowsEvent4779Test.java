@@ -20,7 +20,7 @@ public class WindowsEvent4779Test extends WindowsEventTest {
 				"Client Name:  HOME" + 
 				"Client Address:  192.168.5.2";
 
-        test("4779", content, Locale.US);
+		Assert.assertNotNull(test("4779", content, Locale.US));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class WindowsEvent4779Test extends WindowsEventTest {
 				"Client Name:  HOME" + 
 				"Client Address:  192.168.5.2";
 
-        test("4779", content, Locale.TAIWAN);
+		Assert.assertNotNull(test("4779", content, Locale.TAIWAN));
     }
 
     @Override

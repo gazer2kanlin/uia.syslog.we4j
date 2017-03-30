@@ -21,5 +21,6 @@ public abstract class WindowsEventTest {
 		return result;
 	}
 	
-	protected abstract void validate(Map<String, Object> result);
+	protected void validate(Map<String, Object> result) {
+	}
 }
