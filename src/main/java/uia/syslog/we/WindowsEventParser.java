@@ -68,7 +68,7 @@ public class WindowsEventParser {
      * @return Result.
      * @throws WindowsEventException Raise if parsing failed.
      */
-    public synchronized Map<String, Object> run2Map(String content, WindowsEventType weType) throws WindowsEventException {
+    public synchronized Map<String, Object> toMap(String content, WindowsEventType weType) throws WindowsEventException {
         this.properties.clear();
         this._event = weType.getId();
         this._type = null;
@@ -100,8 +100,8 @@ public class WindowsEventParser {
      * @throws WindowsEventException Raise if parsing failed.
      */
     @SuppressWarnings("unchecked")
-	public synchronized <T> T run2Object(String content, WindowsEventType weType) throws WindowsEventException {
-    	Map<String, Object> map = run2Map(content, weType);
+	public synchronized <T> T toObject(String content, WindowsEventType weType) throws WindowsEventException {
+    	Map<String, Object> map = toMap(content, weType);
     
     	String className = "uia.syslog.we.model.WindowsEvent" + weType.getId();
     	

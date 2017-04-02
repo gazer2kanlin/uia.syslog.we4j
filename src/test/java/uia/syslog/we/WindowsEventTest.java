@@ -13,7 +13,7 @@ public abstract class WindowsEventTest {
         WindowsEventFactory factory = new WindowsEventFactory();
         WindowsEventType weType = factory.find(id);
         WindowsEventParser parser = new WindowsEventParser(locale);
-        Map<String, Object> result = parser.run2Map(content, weType);
+        Map<String, Object> result = parser.toMap(content, weType);
 
         System.out.println(weType.getId() + "(" + weType.getName() + ")> " + result);
         validate(result);
@@ -25,7 +25,7 @@ public abstract class WindowsEventTest {
         WindowsEventFactory factory = new WindowsEventFactory();
         WindowsEventType weType = factory.find(id);
         WindowsEventParser parser = new WindowsEventParser(locale);
-        return parser.run2Object(content, weType);
+        return parser.toObject(content, weType);
     }
 
     protected abstract void validate(Map<String, Object> result);

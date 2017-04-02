@@ -6,7 +6,7 @@ UIA Windows Event Parser
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c48a821f715549adafca7dd853fc71eb)](https://www.codacy.com/app/gazer2kanlin/uia-syslog-we4j?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gazer2kanlin/uia.syslog.we4j&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/github/license/gazer2kanlin/uia.syslog.we4j.svg)](LICENSE)
 
-Prase windows event to key-value pair(Map) or POJO.
+Parse windows event to key-value pairs (Map) or POJO.
 
 ## Locale Supported
 
@@ -124,13 +124,13 @@ WindowsEventType weType = factory.find("5154");
 
 // US
 WindowsEventParser parserUS = new WindowsEventParser(Loacle.US);
-Map<String, Object> resultUS = parser.parse2Map(contentUS, weType);
-WindowsEvent5154 evtUS = parser.parse2Object(contentUS, weType);
+Map<String, Object> resultUS = parser.toMap(contentUS, weType);
+WindowsEvent5154 evtUS = parser.toObject(contentUS, weType);
 
 // Traditional Chinese (繁體中文)
 WindowsEventParser parserTW = new WindowsEventParser(Loacle.TAIWAN);
-Map<String, Object> resultTW = parser.parse2Map(contentTW, weType);
-WindowsEvent5154 evtTW = parser.parse2Object(contentTW, weType);
+Map<String, Object> resultTW = parser.toMap(contentTW, weType);
+WindowsEvent5154 evtTW = parser.toObject(contentTW, weType);
 ```
 
 #### Result (Map)
