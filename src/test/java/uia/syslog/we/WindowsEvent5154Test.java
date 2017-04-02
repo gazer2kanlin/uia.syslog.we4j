@@ -6,7 +6,35 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent5154;
+
 public class WindowsEvent5154Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Application Information: " +
+                "Process ID: 1648 " +
+                "Application Name: \\device\\harddiskvolume1\\windows\\system32\\dns.exe " +
+                "Network Information: " +
+                "Source Address: 10.42.42.223 " +
+                "Source Port: 53 " +
+                "Protocol:  6 " +
+                "Filter Information: " +
+                "Filter Run-Time ID: 65884 " +
+                "Layer Name:  Listen " +
+                "Layer Run-Time ID: 40 ";
+
+        WindowsEvent5154 evt = parse2Object("5154", content, Locale.US);
+        Assert.assertEquals("5154", evt.getEventId());
+        Assert.assertEquals("1648", evt.getProcessId());
+        Assert.assertEquals("\\device\\harddiskvolume1\\windows\\system32\\dns.exe", evt.getApplicationName());
+        Assert.assertEquals("10.42.42.223", evt.getSourceAddress());
+        Assert.assertEquals(53, evt.getSourcePort());
+        Assert.assertEquals("6", evt.getProtocol());
+        Assert.assertEquals("65884", evt.getFilterRunTimeId());
+        Assert.assertEquals("Listen", evt.getLayerName());
+        Assert.assertEquals("40", evt.getLayerRunTimeId());
+    }
 
     @Test
     public void testUS() throws Exception {
@@ -22,7 +50,7 @@ public class WindowsEvent5154Test extends WindowsEventTest {
                 "Layer Name:  Listen " +
                 "Layer Run-Time ID: 40 ";
 
-        Assert.assertEquals(8, test("5154", content, Locale.US).size());
+        Assert.assertEquals(8, parse2Map("5154", content, Locale.US).size());
     }
 
     @Test
@@ -39,7 +67,7 @@ public class WindowsEvent5154Test extends WindowsEventTest {
                 "階層名稱:  Listen " +
                 "階層執行階段識別碼: 40 ";
 
-        Assert.assertEquals(8, test("5154", content, Locale.TAIWAN).size());
+        Assert.assertEquals(8, parse2Map("5154", content, Locale.TAIWAN).size());
     }
 
     @Override

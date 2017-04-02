@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * A handle to an object was requested
+ * A handle to an object was requested.
  *
  * @author Kyle K. Lin
  *
@@ -42,6 +42,26 @@ public class WindowsEvent4656 extends WindowsEvent {
 
     private String objectName;
 
+    private String handleId;
+
+    private String resourceAttributes;
+
+    private String processId;
+
+    private String processName;
+
+    private String transactionId;
+
+    private String accesses;
+
+    private String accessReasons;
+
+    private String accessMask;
+
+    private String privilegesUsedForAccessCheck;
+
+    private int restrictedSIDCount;
+
     public WindowsEvent4656() {
         super("Security-Auditing", "4656");
     }
@@ -50,64 +70,72 @@ public class WindowsEvent4656 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
-    }
-
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
     }
 
     public String getTaskName() {
         return this.taskName;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
     public String getObjectServer() {
         return this.objectServer;
-    }
-
-    public void setObjectServer(String objectServer) {
-        this.objectServer = objectServer;
     }
 
     public String getObjectType() {
         return this.objectType;
     }
 
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
-
     public String getObjectName() {
         return this.objectName;
     }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
+    public String getHandleId() {
+        return this.handleId;
+    }
+
+    public String getResourceAttributes() {
+        return this.resourceAttributes;
+    }
+
+    public String getProcessId() {
+        return this.processId;
+    }
+
+    public String getProcessName() {
+        return this.processName;
+    }
+
+    public String getTransactionId() {
+        return this.transactionId;
+    }
+
+    public String getAccesses() {
+        return this.accesses;
+    }
+
+    public String getAccessReasons() {
+        return this.accessReasons;
+    }
+
+    public String getAccessMask() {
+        return this.accessMask;
+    }
+
+    public String getPrivilegesUsedForAccessCheck() {
+        return this.privilegesUsedForAccessCheck;
+    }
+
+    public int getRestrictedSIDCount() {
+        return this.restrictedSIDCount;
     }
 
 }

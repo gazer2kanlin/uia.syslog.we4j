@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The state of a transaction has changed
+ * A logon was attempted using explicit credentials.
  *
  * @author Kyle K. Lin
  *
@@ -34,11 +34,25 @@ public class WindowsEvent4648 extends WindowsEvent {
 
     private String logonId;
 
-    private String processID;
+    private String logonGuid;
+
+    private String credentialsAccountName;
+
+    private String credentialsAccountDomain;
+
+    private String credentialsLogonGuid;
+
+    private String targetServerName;
+
+    private String additionalInformation;
+
+    private String processId;
 
     private String processName;
 
-    // TODO: more parameters
+    private String networkAddress;
+
+    private int port;
 
     public WindowsEvent4648() {
         super("Security-Auditing", "4648");
@@ -48,48 +62,56 @@ public class WindowsEvent4648 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
     }
 
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
+    public String getLogonGuid() {
+        return this.logonGuid;
     }
 
-    public String getProcessID() {
-        return this.processID;
+    public String getCredentialsAccountName() {
+        return this.credentialsAccountName;
     }
 
-    public void setProcessID(String processID) {
-        this.processID = processID;
+    public String getCredentialsAccountDomain() {
+        return this.credentialsAccountDomain;
+    }
+
+    public String getCredentialsLogonGuid() {
+        return this.credentialsLogonGuid;
+    }
+
+    public String getTargetServerName() {
+        return this.targetServerName;
+    }
+
+    public String getAdditionalInformation() {
+        return this.additionalInformation;
+    }
+
+    public String getProcessId() {
+        return this.processId;
     }
 
     public String getProcessName() {
         return this.processName;
     }
 
-    public void setProcessName(String processName) {
-        this.processName = processName;
+    public String getNetworkAddress() {
+        return this.networkAddress;
+    }
+
+    public int getPort() {
+        return this.port;
     }
 
 }

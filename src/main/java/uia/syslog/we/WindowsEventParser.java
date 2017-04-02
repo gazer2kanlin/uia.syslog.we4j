@@ -24,6 +24,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import com.google.gson.Gson;
+
 import uia.syslog.we.model.xml.AbstractPropertyType;
 import uia.syslog.we.model.xml.PropertySetType;
 import uia.syslog.we.model.xml.PropertyType;
@@ -66,7 +68,7 @@ public class WindowsEventParser {
      * @return Result.
      * @throws WindowsEventException Raise if parsing failed.
      */
-    public synchronized Map<String, Object> run(String content, WindowsEventType weType) throws WindowsEventException {
+    public synchronized Map<String, Object> run2Map(String content, WindowsEventType weType) throws WindowsEventException {
         this.properties.clear();
         this._event = weType.getId();
         this._type = null;
@@ -88,6 +90,30 @@ public class WindowsEventParser {
         }
 
         return this.properties;
+    }
+
+    /**
+     * Parse log content with specific description of structure.
+     * @param content Content.
+     * @param weType description of structure.
+     * @return Result.
+     * @throws WindowsEventException Raise if parsing failed.
+     */
+    @SuppressWarnings("unchecked")
+	public synchronized <T> T run2Object(String content, WindowsEventType weType) throws WindowsEventException {
+    	Map<String, Object> map = run2Map(content, weType);
+    
+    	String className = "uia.syslog.we.model.WindowsEvent" + weType.getId();
+    	
+    	Class<T> cls = null;
+    	try {
+			cls = (Class<T>) Class.forName(className);
+		} catch (ClassNotFoundException e) {
+			throw new WindowsEventException(className +" not found", e);
+		}
+    	
+    	Gson gson = new Gson();
+    	return gson.fromJson(gson.toJson(map), cls);
     }
 
     private void walk(PropertySetType propType) throws WindowsEventException {

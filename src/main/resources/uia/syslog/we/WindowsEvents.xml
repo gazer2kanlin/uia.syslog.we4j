@@ -58,7 +58,7 @@
             <Property id="linkedLogonId" dataType="String" required="false"></Property>
             <Property id="networkAccountName" dataType="String" required="false"></Property>
             <Property id="networkAccountDomain" dataType="String" required="false"></Property>
-            <Property id="newLogonGUID" dataType="String"></Property>
+            <Property id="newLogonGuid" dataType="String"></Property>
         </PropertySet>
         <PropertySet id="processInformation">
             <Property id="processId" dataType="String"></Property>
@@ -514,7 +514,7 @@
         </PropertySet>
     </WindowsEvent>
     
-    <WindowsEvent id="5450" name="WFP_SUBLAYER_CHANGE" desc=" A Windows Filtering Platform sub-layer has been changed">
+    <WindowsEvent id="5450" name="WFP_SUBLAYER_CHANGE" desc="A Windows Filtering Platform sub-layer has been changed">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>

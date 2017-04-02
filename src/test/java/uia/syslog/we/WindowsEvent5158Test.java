@@ -6,7 +6,35 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent5158;
+
 public class WindowsEvent5158Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Application Information: " +
+                "Process ID: 1648 " +
+                "Application Name: \\device\\harddiskvolume1\\windows\\system32\\dns.exe " +
+                "Network Information: " +
+                "Source Address: 10.42.42.223 " +
+                "Source Port: 53 " +
+                "Protocol:  6 " +
+                "Filter Information: " +
+                "Filter Run-Time ID: 65884 " +
+                "Layer Name:  Listen " +
+                "Layer Run-Time ID: 40 ";
+
+        WindowsEvent5158 evt = parse2Object("5158", content, Locale.US);
+        Assert.assertEquals("5158", evt.getEventId());
+        Assert.assertEquals("1648", evt.getProcessId());
+        Assert.assertEquals("\\device\\harddiskvolume1\\windows\\system32\\dns.exe", evt.getApplicationName());
+        Assert.assertEquals("10.42.42.223", evt.getSourceAddress());
+        Assert.assertEquals(53, evt.getSourcePort());
+        Assert.assertEquals("6", evt.getProtocol());
+        Assert.assertEquals("65884", evt.getFilterRunTimeId());
+        Assert.assertEquals("Listen", evt.getLayerName());
+        Assert.assertEquals("40", evt.getLayerRunTimeId());
+    }
 
     @Test
     public void testUS() throws Exception {
@@ -22,7 +50,7 @@ public class WindowsEvent5158Test extends WindowsEventTest {
                 "Layer Name:  Listen " +
                 "Layer Run-Time ID: 40 ";
 
-        Assert.assertNotNull(test("5158", content, Locale.US));
+        Assert.assertNotNull(parse2Map("5158", content, Locale.US));
     }
 
     @Test
@@ -39,7 +67,7 @@ public class WindowsEvent5158Test extends WindowsEventTest {
                 "階層名稱:  Listen " +
                 "階層執行階段識別碼: 40 ";
 
-        Assert.assertNotNull(test("5158", content, Locale.TAIWAN));
+        Assert.assertNotNull(parse2Map("5158", content, Locale.TAIWAN));
     }
 
     @Override

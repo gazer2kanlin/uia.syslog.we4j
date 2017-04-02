@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The domain controller attempted to validate the credentials for an account
+ * The domain controller attempted to validate the credentials for an account.
  *
  * @author Kyle K. Lin
  *

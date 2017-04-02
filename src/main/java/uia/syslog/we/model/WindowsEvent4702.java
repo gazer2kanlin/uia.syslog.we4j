@@ -34,104 +34,35 @@ public class WindowsEvent4702 extends WindowsEvent {
 
     private String logonId;
 
-    private String objectServer;
+    private String taskName;
 
-    private String objectType;
-
-    private String objectName;
-
-    private String handleId;
-
-    // TODO: more parameters
-
-    private String processId;
-
-    private String processName;
-
-    // TODO: more parameters
+    private String taskNewContent;
 
     public WindowsEvent4702() {
         super("Security-Auditing", "4702");
     }
 
     public String getSecurityId() {
-        return this.securityId;
-    }
-
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
+        return securityId;
     }
 
     public String getAccountName() {
-        return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+        return accountName;
     }
 
     public String getAccountDomain() {
-        return this.accountDomain;
-    }
-
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
+        return accountDomain;
     }
 
     public String getLogonId() {
-        return this.logonId;
+        return logonId;
     }
 
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
+    public String getTaskName() {
+        return taskName;
     }
 
-    public String getObjectServer() {
-        return this.objectServer;
+    public String getTaskNewContent() {
+        return taskNewContent;
     }
-
-    public void setObjectServer(String objectServer) {
-        this.objectServer = objectServer;
-    }
-
-    public String getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
-
-    public String getObjectName() {
-        return this.objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public String getHandleId() {
-        return this.handleId;
-    }
-
-    public void setHandleId(String handleId) {
-        this.handleId = handleId;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getProcessName() {
-        return this.processName;
-    }
-
-    public void setProcessName(String processName) {
-        this.processName = processName;
-    }
-
 }

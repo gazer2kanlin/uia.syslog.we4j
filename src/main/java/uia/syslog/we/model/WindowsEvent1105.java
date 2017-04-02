@@ -19,14 +19,14 @@
 package uia.syslog.we.model;
 
 /**
- * The state of a transaction has changed
+ * Event log automatic backup.
  *
  * @author Kyle K. Lin
  *
  */
 public class WindowsEvent1105 extends WindowsEvent {
 
-    private String logSecurity;
+    private String log;
 
     private String file;
 
@@ -34,20 +34,11 @@ public class WindowsEvent1105 extends WindowsEvent {
         super("Eventlog", "1105");
     }
 
-    public String getLogSecurity() {
-        return this.logSecurity;
-    }
-
-    public void setLogSecurity(String logSecurity) {
-        this.logSecurity = logSecurity;
+    public String getLog() {
+        return this.log;
     }
 
     public String getFile() {
         return this.file;
     }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
 }

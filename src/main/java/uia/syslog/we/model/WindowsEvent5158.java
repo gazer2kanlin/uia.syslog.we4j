@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The Windows Filtering Platform has allowed a connection
+ * The Windows Filtering Platform has permitted a bind to a local port.
  *
  * @author Kyle K. Lin
  *
@@ -50,63 +50,31 @@ public class WindowsEvent5158 extends WindowsEvent {
         return this.processId;
     }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
     public String getApplicationName() {
         return this.applicationName;
-    }
-
-    public void setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
     }
 
     public String getSourceAddress() {
         return this.sourceAddress;
     }
 
-    public void setSourceAddress(String sourceAddress) {
-        this.sourceAddress = sourceAddress;
-    }
-
     public int getSourcePort() {
         return this.sourcePort;
-    }
-
-    public void setSourcePort(int sourcePort) {
-        this.sourcePort = sourcePort;
     }
 
     public String getProtocol() {
         return this.protocol;
     }
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
-
     public String getFilterRunTimeId() {
         return this.filterRunTimeId;
-    }
-
-    public void setFilterRunTimeId(String filterRunTimeId) {
-        this.filterRunTimeId = filterRunTimeId;
     }
 
     public String getLayerName() {
         return this.layerName;
     }
 
-    public void setLayerName(String layerName) {
-        this.layerName = layerName;
-    }
-
     public String getLayerRunTimeId() {
         return this.layerRunTimeId;
-    }
-
-    public void setLayerRunTimeId(String layerRunTimeId) {
-        this.layerRunTimeId = layerRunTimeId;
     }
 }

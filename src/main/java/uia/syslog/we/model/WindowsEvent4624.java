@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The state of a transaction has changed
+ * An account was successfully logged on.
  *
  * @author Kyle K. Lin
  *
@@ -34,7 +34,51 @@ public class WindowsEvent4624 extends WindowsEvent {
 
     private String logonId;
 
-    // TODO: more parameters
+    private String logonType;
+
+    private String restrictedAdminMode;
+
+    private String virtualAccount;
+
+    private String elevatedToken;
+
+    private String impersonationLevel;
+
+    private String newSecurityId;
+
+    private String newAccountName;
+
+    private String newAccountDomain;
+
+    private String newLogonId;
+
+    private String linkedLogonId;
+
+    private String networkAccountName;
+
+    private String networkAccountDomain;
+
+    private String newLogonGuid;
+
+    private String processId;
+
+    private String processName;
+
+    private String workstationName;
+
+    private String sourceNetworkAddress;
+
+    private int sourcePort;
+
+    private String logonProcess;
+
+    private String authenticationPackage;
+
+    private String transitedServices;
+
+    private String packageNameNTLMOnly;
+
+    private int keyLength;
 
     public WindowsEvent4624() {
         super("Security-Auditing", "4624");
@@ -44,32 +88,108 @@ public class WindowsEvent4624 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
     }
 
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
+    public String getLogonType() {
+        return this.logonType;
+    }
+
+    public String getRestrictedAdminMode() {
+        return this.restrictedAdminMode;
+    }
+
+    public String getVirtualAccount() {
+        return this.virtualAccount;
+    }
+
+    public String getElevatedToken() {
+        return this.elevatedToken;
+    }
+
+    public String getImpersonationLevel() {
+        return this.impersonationLevel;
+    }
+
+    public String getNewSecurityId() {
+        return this.newSecurityId;
+    }
+
+    public String getNewAccountName() {
+        return this.newAccountName;
+    }
+
+    public String getNewAccountDomain() {
+        return this.newAccountDomain;
+    }
+
+    public String getNewLogonId() {
+        return this.newLogonId;
+    }
+
+    public String getLinkedLogonId() {
+        return this.linkedLogonId;
+    }
+
+    public String getNetworkAccountName() {
+        return this.networkAccountName;
+    }
+
+    public String getNetworkAccountDomain() {
+        return this.networkAccountDomain;
+    }
+
+    public String getNewLogonGuid() {
+        return this.newLogonGuid;
+    }
+
+    public String getProcessId() {
+        return this.processId;
+    }
+
+    public String getProcessName() {
+        return this.processName;
+    }
+
+    public String getWorkstationName() {
+        return this.workstationName;
+    }
+
+    public String getSourceNetworkAddress() {
+        return this.sourceNetworkAddress;
+    }
+
+    public int getSourcePort() {
+        return this.sourcePort;
+    }
+
+    public String getLogonProcess() {
+        return this.logonProcess;
+    }
+
+    public String getAuthenticationPackage() {
+        return this.authenticationPackage;
+    }
+
+    public String getTransitedServices() {
+        return this.transitedServices;
+    }
+
+    public String getPackageNameNTLMOnly() {
+        return this.packageNameNTLMOnly;
+    }
+
+    public int getKeyLength() {
+        return this.keyLength;
     }
 
 }

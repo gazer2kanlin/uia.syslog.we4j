@@ -19,14 +19,12 @@
 package uia.syslog.we.model;
 
 /**
- * An attempt was made to duplicate a handle to an object.
+ * A session was disconnected from a Window Station.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent4690 extends WindowsEvent {
-
-    private String securityId;
+public class WindowsEvent4779 extends WindowsEvent {
 
     private String accountName;
 
@@ -34,20 +32,14 @@ public class WindowsEvent4690 extends WindowsEvent {
 
     private String logonId;
 
-    private String sourceHandleId;
+    private String sessionName;
 
-    private String sourceProcessId;
+    private String clientName;
 
-    private String targetHandleId;
+    private String clientAddress;
 
-    private String targetProcessId;
-
-    public WindowsEvent4690() {
-        super("Security-Auditing", "4690");
-    }
-
-    public String getSecurityId() {
-        return this.securityId;
+    public WindowsEvent4779() {
+        super("Security-Auditing", "4779");
     }
 
     public String getAccountName() {
@@ -62,20 +54,16 @@ public class WindowsEvent4690 extends WindowsEvent {
         return this.logonId;
     }
 
-    public String getSourceHandleId() {
-        return this.sourceHandleId;
+    public String getSessionName() {
+        return this.sessionName;
     }
 
-    public String getSourceProcessId() {
-        return this.sourceProcessId;
+    public String getClientName() {
+        return this.clientName;
     }
 
-    public String getTargetHandleId() {
-        return this.targetHandleId;
-    }
-
-    public String getTargetProcessId() {
-        return this.targetProcessId;
+    public String getClientAddress() {
+        return this.clientAddress;
     }
 
 }

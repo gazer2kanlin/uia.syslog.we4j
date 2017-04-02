@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * An account was logged off
+ * An account was logged off.
  *
  * @author Kyle K. Lin
  *
@@ -44,40 +44,19 @@ public class WindowsEvent4634 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
-    }
-
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
     }
 
     public String getLogonType() {
         return this.logonType;
     }
-
-    public void setLogonType(String logonType) {
-        this.logonType = logonType;
-    }
-
 }

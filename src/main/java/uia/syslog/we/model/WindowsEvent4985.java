@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The state of a transaction has changed
+ * A logon was attempted using explicit credentials.
  *
  * @author Kyle K. Lin
  *
@@ -33,6 +33,8 @@ public class WindowsEvent4985 extends WindowsEvent {
     private String accountDomain;
 
     private String logonId;
+
+    private String logonGuid;
 
     private String rmTransactionId;
 
@@ -52,72 +54,40 @@ public class WindowsEvent4985 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
     }
 
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
+    public String getLogonGuid() {
+        return this.logonGuid;
     }
 
     public String getRmTransactionId() {
         return this.rmTransactionId;
     }
 
-    public void setRmTransactionId(String rmTransactionId) {
-        this.rmTransactionId = rmTransactionId;
-    }
-
     public String getNewState() {
         return this.newState;
-    }
-
-    public void setNewState(String newState) {
-        this.newState = newState;
     }
 
     public String getResourceManager() {
         return this.resourceManager;
     }
 
-    public void setResourceManager(String resourceManager) {
-        this.resourceManager = resourceManager;
-    }
-
     public String getProcessId() {
         return this.processId;
     }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
     public String getProcessName() {
         return this.processName;
-    }
-
-    public void setProcessName(String processName) {
-        this.processName = processName;
     }
 
 }

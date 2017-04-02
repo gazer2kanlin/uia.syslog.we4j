@@ -19,55 +19,85 @@
 package uia.syslog.we.model;
 
 /**
- * The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+ * A Windows Filtering Platform callout has been changed.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent5154 extends WindowsEvent {
+public class WindowsEvent5446 extends WindowsEvent {
+
+    private String securityId;
+
+    private String accountName;
 
     private String processId;
 
-    private String applicationName;
+    private String providerId;
 
-    private String sourceAddress;
+    private String providerName;
 
-    private int sourcePort;
+    private String changeType;
 
-    private String protocol;
+    private String calloutId;
 
-    private String filterRunTimeId;
+    private String calloutName;
+
+    private String calloutType;
+
+    private String calloutRunTimeId;
+
+    private String layerId;
 
     private String layerName;
 
     private String layerRunTimeId;
 
-    public WindowsEvent5154() {
-        super("Security-Auditing", "5154");
+    public WindowsEvent5446() {
+        super("Security-Auditing", "5446");
+    }
+
+    public String getSecurityId() {
+        return this.securityId;
+    }
+
+    public String getAccountName() {
+        return this.accountName;
     }
 
     public String getProcessId() {
         return this.processId;
     }
 
-    public String getApplicationName() {
-        return this.applicationName;
+    public String getProviderId() {
+        return this.providerId;
     }
 
-    public String getSourceAddress() {
-        return this.sourceAddress;
+    public String getProviderName() {
+        return this.providerName;
     }
 
-    public int getSourcePort() {
-        return this.sourcePort;
+    public String getChangeType() {
+        return this.changeType;
     }
 
-    public String getProtocol() {
-        return this.protocol;
+    public String getCalloutId() {
+        return this.calloutId;
     }
 
-    public String getFilterRunTimeId() {
-        return this.filterRunTimeId;
+    public String getCalloutName() {
+        return this.calloutName;
+    }
+
+    public String getCalloutType() {
+        return this.calloutType;
+    }
+
+    public String getCalloutRunTimeId() {
+        return this.calloutRunTimeId;
+    }
+
+    public String getLayerId() {
+        return this.layerId;
     }
 
     public String getLayerName() {
@@ -77,4 +107,5 @@ public class WindowsEvent5154 extends WindowsEvent {
     public String getLayerRunTimeId() {
         return this.layerRunTimeId;
     }
+
 }

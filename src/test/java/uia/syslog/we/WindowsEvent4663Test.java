@@ -28,7 +28,7 @@ public class WindowsEvent4663Test extends WindowsEventTest {
                 "Accesses: DELETE " +
                 "Access Mask: 0x10000 ";
 
-        Assert.assertNotNull(test("4663", content, Locale.US));
+        Assert.assertNotNull(parse2Map("4663", content, Locale.US));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class WindowsEvent4663Test extends WindowsEventTest {
                 "存取: DELETE " +
                 "存取遮罩: 0x10000 ";
 
-        Assert.assertNotNull(test("4663", content, Locale.TAIWAN));
+        Assert.assertNotNull(parse2Map("4663", content, Locale.TAIWAN));
     }
 
     @Override

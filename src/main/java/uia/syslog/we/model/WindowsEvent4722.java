@@ -19,12 +19,12 @@
 package uia.syslog.we.model;
 
 /**
- * An attempt was made to duplicate a handle to an object.
+ * A user account was enabled.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent4690 extends WindowsEvent {
+public class WindowsEvent4722 extends WindowsEvent {
 
     private String securityId;
 
@@ -34,16 +34,14 @@ public class WindowsEvent4690 extends WindowsEvent {
 
     private String logonId;
 
-    private String sourceHandleId;
+    private String targetSecurityId;
 
-    private String sourceProcessId;
+    private String targetAccountName;
 
-    private String targetHandleId;
+    private String targetAccountDomain;
 
-    private String targetProcessId;
-
-    public WindowsEvent4690() {
-        super("Security-Auditing", "4690");
+    public WindowsEvent4722() {
+        super("Security-Auditing", "4722");
     }
 
     public String getSecurityId() {
@@ -62,20 +60,15 @@ public class WindowsEvent4690 extends WindowsEvent {
         return this.logonId;
     }
 
-    public String getSourceHandleId() {
-        return this.sourceHandleId;
+    public String getTargetSecurityId() {
+        return this.targetSecurityId;
     }
 
-    public String getSourceProcessId() {
-        return this.sourceProcessId;
+    public String getTargetAccountName() {
+        return this.targetAccountName;
     }
 
-    public String getTargetHandleId() {
-        return this.targetHandleId;
+    public String getTargetAccountDomain() {
+        return this.targetAccountDomain;
     }
-
-    public String getTargetProcessId() {
-        return this.targetProcessId;
-    }
-
 }

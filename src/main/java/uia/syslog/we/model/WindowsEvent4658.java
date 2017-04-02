@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * The handle to an object was closed
+ * The handle to an object was closed.
  *
  * @author Kyle K. Lin
  *
@@ -50,63 +50,32 @@ public class WindowsEvent4658 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
-    }
-
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
     }
 
     public String getObjectServer() {
         return this.objectServer;
     }
 
-    public void setObjectServer(String objectServer) {
-        this.objectServer = objectServer;
-    }
-
     public String getHandleId() {
         return this.handleId;
-    }
-
-    public void setHandleId(String handleId) {
-        this.handleId = handleId;
     }
 
     public String getProcessId() {
         return this.processId;
     }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
     public String getProcessName() {
         return this.processName;
     }
 
-    public void setProcessName(String processName) {
-        this.processName = processName;
-    }
 }

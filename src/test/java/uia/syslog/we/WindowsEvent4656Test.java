@@ -35,7 +35,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "Privileges Used for Access Check: - " +
                 "Restricted SID Count: 0 ";
 
-        Assert.assertEquals(16, test("4656", content, Locale.US).size());
+        Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
     }
 
     @Test
@@ -59,12 +59,12 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "SYNCHRONIZE " +
                 "ReadData (or ListDirectory) " +
                 "ReadEA " +
-                "ReadAttributes   " + 
+                "ReadAttributes   " +
                 "Access Mask:  0x120089 " +
                 "Privileges Used for Access Check: - " +
                 "Restricted SID Count: 0 ";
 
-        Assert.assertEquals(16, test("4656", content, Locale.US).size());
+        Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
     }
 
     @Test
@@ -94,7 +94,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "存取檢查所使用的權限: - " +
                 "限制的 SID 數目: 0 ";
 
-        Assert.assertEquals(16, test("4656", content, Locale.TAIWAN).size());
+        Assert.assertEquals(16, parse2Map("4656", content, Locale.TAIWAN).size());
     }
 
     @Override

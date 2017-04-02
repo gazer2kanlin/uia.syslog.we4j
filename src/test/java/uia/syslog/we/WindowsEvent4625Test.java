@@ -38,7 +38,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
                 "Package Name (NTLM only): - " +
                 "Key Length: 0";
 
-        Assert.assertNotNull(test("4625", content, Locale.US));
+        Assert.assertNotNull(parse2Map("4625", content, Locale.US));
     }
 
     @Test
@@ -71,7 +71,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
                 "封裝名稱 (僅限 NTLM): - " +
                 "金鑰長度: 0";
 
-        Assert.assertNotNull(test("4625", content, Locale.TAIWAN));
+        Assert.assertNotNull(parse2Map("4625", content, Locale.TAIWAN));
     }
 
     @Override

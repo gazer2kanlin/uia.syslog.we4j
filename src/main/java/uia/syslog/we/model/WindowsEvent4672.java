@@ -19,7 +19,7 @@
 package uia.syslog.we.model;
 
 /**
- * Special privileges assigned to new logon
+ * Special privileges assigned to new logon.
  *
  * @author Kyle K. Lin
  *
@@ -34,7 +34,7 @@ public class WindowsEvent4672 extends WindowsEvent {
 
     private String logonId;
 
-    // TODO: more parameters
+    private String privileges;
 
     public WindowsEvent4672() {
         super("Security-Auditing", "4672");
@@ -44,31 +44,20 @@ public class WindowsEvent4672 extends WindowsEvent {
         return this.securityId;
     }
 
-    public void setSecurityId(String securityId) {
-        this.securityId = securityId;
-    }
-
     public String getAccountName() {
         return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getAccountDomain() {
         return this.accountDomain;
     }
 
-    public void setAccountDomain(String accountDomain) {
-        this.accountDomain = accountDomain;
-    }
-
     public String getLogonId() {
         return this.logonId;
     }
 
-    public void setLogonId(String logonId) {
-        this.logonId = logonId;
+    public String getPrivileges() {
+        return this.privileges;
     }
+
 }

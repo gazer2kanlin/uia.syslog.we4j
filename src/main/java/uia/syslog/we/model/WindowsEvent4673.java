@@ -19,12 +19,12 @@
 package uia.syslog.we.model;
 
 /**
- * An attempt was made to duplicate a handle to an object.
+ * A privileged service was called.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent4690 extends WindowsEvent {
+public class WindowsEvent4673 extends WindowsEvent {
 
     private String securityId;
 
@@ -34,16 +34,18 @@ public class WindowsEvent4690 extends WindowsEvent {
 
     private String logonId;
 
-    private String sourceHandleId;
+    private String server;
 
-    private String sourceProcessId;
+    private String serverName;
 
-    private String targetHandleId;
+    private String processId;
 
-    private String targetProcessId;
+    private String processName;
 
-    public WindowsEvent4690() {
-        super("Security-Auditing", "4690");
+    private String privileges;
+
+    public WindowsEvent4673() {
+        super("Security-Auditing", "4673");
     }
 
     public String getSecurityId() {
@@ -62,20 +64,24 @@ public class WindowsEvent4690 extends WindowsEvent {
         return this.logonId;
     }
 
-    public String getSourceHandleId() {
-        return this.sourceHandleId;
+    public String getServer() {
+        return this.server;
     }
 
-    public String getSourceProcessId() {
-        return this.sourceProcessId;
+    public String getServerName() {
+        return this.serverName;
     }
 
-    public String getTargetHandleId() {
-        return this.targetHandleId;
+    public String getProcessId() {
+        return this.processId;
     }
 
-    public String getTargetProcessId() {
-        return this.targetProcessId;
+    public String getProcessName() {
+        return this.processName;
+    }
+
+    public String getPrivileges() {
+        return this.privileges;
     }
 
 }

@@ -19,12 +19,12 @@
 package uia.syslog.we.model;
 
 /**
- * An attempt was made to duplicate a handle to an object.
+ * User initiated logoff.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent4690 extends WindowsEvent {
+public class WindowsEvent4647 extends WindowsEvent {
 
     private String securityId;
 
@@ -34,16 +34,8 @@ public class WindowsEvent4690 extends WindowsEvent {
 
     private String logonId;
 
-    private String sourceHandleId;
-
-    private String sourceProcessId;
-
-    private String targetHandleId;
-
-    private String targetProcessId;
-
-    public WindowsEvent4690() {
-        super("Security-Auditing", "4690");
+    public WindowsEvent4647() {
+        super("Security-Auditing", "4647");
     }
 
     public String getSecurityId() {
@@ -61,21 +53,4 @@ public class WindowsEvent4690 extends WindowsEvent {
     public String getLogonId() {
         return this.logonId;
     }
-
-    public String getSourceHandleId() {
-        return this.sourceHandleId;
-    }
-
-    public String getSourceProcessId() {
-        return this.sourceProcessId;
-    }
-
-    public String getTargetHandleId() {
-        return this.targetHandleId;
-    }
-
-    public String getTargetProcessId() {
-        return this.targetProcessId;
-    }
-
 }
