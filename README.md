@@ -1,13 +1,12 @@
 UIA Windows Event Parser
 ================
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c48a821f715549adafca7dd853fc71eb)](https://www.codacy.com/app/gazer2kanlin/uia-syslog-we4j?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gazer2kanlin/uia.syslog.we4j&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/gazer2kanlin/uia.syslog.we4j.svg?branch=master)](https://travis-ci.org/gazer2kanlin/uia.syslog.we4j)
 [![Codecov](https://img.shields.io/codecov/c/github/gazer2kanlin/uia.syslog.we4j.svg)](https://codecov.io/gh/gazer2kanlin/uia.syslog.we4j)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c48a821f715549adafca7dd853fc71eb)](https://www.codacy.com/app/gazer2kanlin/uia-syslog-we4j?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gazer2kanlin/uia.syslog.we4j&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/github/license/gazer2kanlin/uia.syslog.we4j.svg)](LICENSE)
 
-Decode windows event to key-value result.
-
+Prase windows event to key-value pair(Map) or POJO.
 
 ## Locale Supported
 
@@ -125,14 +124,16 @@ WindowsEventType weType = factory.find("5154");
 
 // US
 WindowsEventParser parserUS = new WindowsEventParser(Loacle.US);
-Map<String, Object> resultUS = parser.run(contentUS, weType);
+Map<String, Object> resultUS = parser.parse2Map(contentUS, weType);
+WindowsEvent5154 evtUS = parser.parse2Object(contentUS, weType);
 
 // Traditional Chinese (繁體中文)
 WindowsEventParser parserTW = new WindowsEventParser(Loacle.TAIWAN);
-Map<String, Object> resultTW = parser.run(contentTW, weType);
+Map<String, Object> resultTW = parser.parse2Map(contentTW, weType);
+WindowsEvent5154 evtTW = parser.parse2Object(contentTW, weType);
 ```
 
-#### Result
+#### Result (Map)
 ``` yaml
 procesId: "1647"
 applicationName: "dns.exe"
