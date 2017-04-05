@@ -36,29 +36,38 @@ public class WindowsEvent4625Test extends WindowsEventTest {
                 "Detailed Authentication Information: " +
                 "Logon Process:  NtLmSsp" +
                 "Authentication Package: NTLM" +
-                "Transited Services: " +
+                "Transited Services: No " +
                 "Package Name (NTLM only): - " +    // ignore = true
                 "Key Length: 5";                    // ignore = true
 
         WindowsEvent4625 evt = parse2Object("4625", content, Locale.US);
         Assert.assertEquals("4625", evt.getEventId());
+
         Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("ACME", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+
         Assert.assertEquals("3", evt.getLogonType());
+
+        Assert.assertEquals("NULL SID", evt.getFailedSecurityId());
         Assert.assertEquals("asdf", evt.getFailedAccountName());
         Assert.assertEquals("", evt.getFailedAccountDomain());
+
         Assert.assertEquals("Unknown user name or bad password.", evt.getFailureReason());
         Assert.assertEquals("0xc000006d", evt.getFailureStatus());
         Assert.assertEquals("0xc0000064", evt.getFailureSubStatus());
+
         Assert.assertEquals("0x1ac", evt.getCallerProcessId());
         Assert.assertEquals("C:\\Windows\\System32\\cmd.exe", evt.getCallerProcessName());
+
         Assert.assertEquals("WIN-R9H529RIO4Y", evt.getWorkstationName());
         Assert.assertEquals("10.42.42.201", evt.getSourceNetworkAddress());
         Assert.assertEquals(53176, evt.getSourcePort());
+
         Assert.assertEquals("NtLmSsp", evt.getLogonProcess());
         Assert.assertEquals("NTLM", evt.getAuthenticationPackage());
+        Assert.assertEquals("No", evt.getTransitedServices());
         Assert.assertEquals(null, evt.getPackageNameNTLMOnly());
         Assert.assertEquals(0, evt.getKeyLength());
     }
@@ -89,7 +98,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
                 "Detailed Authentication Information: " +
                 "Logon Process:  NtLmSsp" +
                 "Authentication Package: NTLM" +
-                "Transited Services: " +
+                "Transited Services: No" +
                 "Package Name (NTLM only): - " +
                 "Key Length: 5";
 
@@ -122,7 +131,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
                 "詳細驗證資訊: " +
                 "登入處理程序: NtLmSsp" +
                 "驗證封裝: NTLM" +
-                "轉送的服務: " +
+                "轉送的服務: No" +
                 "封裝名稱 (僅限 NTLM): - " +
                 "金鑰長度: 5";
 
@@ -153,7 +162,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
 
         Assert.assertEquals(result.get("logonProcess"), "NtLmSsp");
         Assert.assertEquals(result.get("authenticationPackage"), "NTLM");
-        Assert.assertEquals(result.get("transitedServices"), "");
+        Assert.assertEquals(result.get("transitedServices"), "No");
         Assert.assertNull(result.get("packetNameNTLMOnly"));
         Assert.assertNull(result.get("keyLength"));
     }

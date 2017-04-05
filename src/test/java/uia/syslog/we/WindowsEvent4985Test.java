@@ -27,13 +27,16 @@ public class WindowsEvent4985Test extends WindowsEventTest {
 
         WindowsEvent4985 evt = parse2Object("4985", content, Locale.US);
         Assert.assertEquals("4985", evt.getEventId());
+
         Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("ACME", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+
         Assert.assertEquals("{7a1beac9-ab0f-11dc-a998-000c29fee385}", evt.getRmTransactionId());
         Assert.assertEquals("48", evt.getNewState());
         Assert.assertEquals("{dbcb1457-a76f-11dc-ae5a-c74dbd19033c}", evt.getResourceManager());
+
         Assert.assertEquals("0x1ac", evt.getProcessId());
         Assert.assertEquals("C:\\Windows\\System32\\cmd.exe", evt.getProcessName());
     }

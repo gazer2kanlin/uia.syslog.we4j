@@ -16,6 +16,7 @@ public class WindowsEvent1105Test extends WindowsEventTest {
                 "File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx";
 
         WindowsEvent1105 evt = parse2Object("1105", content, Locale.US);
+        Assert.assertEquals("Eventlog", evt.getEventSource());
         Assert.assertEquals("1105", evt.getEventId());
         Assert.assertEquals("Security", evt.getLog());
         Assert.assertEquals("C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx", evt.getFile());

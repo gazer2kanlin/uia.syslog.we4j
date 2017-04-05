@@ -34,8 +34,6 @@ public class WindowsEvent4985 extends WindowsEvent {
 
     private String logonId;
 
-    private String logonGuid;
-
     private String rmTransactionId;
 
     private String newState;
@@ -64,10 +62,6 @@ public class WindowsEvent4985 extends WindowsEvent {
 
     public String getLogonId() {
         return this.logonId;
-    }
-
-    public String getLogonGuid() {
-        return this.logonGuid;
     }
 
     public String getRmTransactionId() {

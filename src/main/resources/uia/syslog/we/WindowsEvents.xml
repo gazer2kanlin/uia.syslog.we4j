@@ -181,7 +181,6 @@
         <PropertySet id="accessRequestInformation">
             <Property id="transactionId" dataType="String"></Property>
             <Property id="accesses" dataType="String"></Property>
-            <Property id="accessReasons" dataType="String"></Property>
             <Property id="accessMask" dataType="String"></Property>
             <Property id="privilegesUsedForAccessCheck" dataType="String"></Property>
             <Property id="restrictedSIDCount" dataType="Int"></Property>
@@ -345,7 +344,6 @@
             <Property id="accountName" dataType="String"></Property>
             <Property id="accountDomain" dataType="String"></Property>
             <Property id="logonId" dataType="String"></Property>
-            <Property id="logonGuid" dataType="String"></Property>
         </PropertySet>
         <PropertySet id="transactionInformation">
             <Property id="rmTransactionId" dataType="String"></Property>

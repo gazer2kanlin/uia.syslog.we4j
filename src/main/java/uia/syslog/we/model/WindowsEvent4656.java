@@ -34,8 +34,6 @@ public class WindowsEvent4656 extends WindowsEvent {
 
     private String logonId;
 
-    private String taskName;
-
     private String objectServer;
 
     private String objectType;
@@ -53,8 +51,6 @@ public class WindowsEvent4656 extends WindowsEvent {
     private String transactionId;
 
     private String accesses;
-
-    private String accessReasons;
 
     private String accessMask;
 
@@ -80,10 +76,6 @@ public class WindowsEvent4656 extends WindowsEvent {
 
     public String getLogonId() {
         return this.logonId;
-    }
-
-    public String getTaskName() {
-        return this.taskName;
     }
 
     public String getObjectServer() {
@@ -120,10 +112,6 @@ public class WindowsEvent4656 extends WindowsEvent {
 
     public String getAccesses() {
         return this.accesses;
-    }
-
-    public String getAccessReasons() {
-        return this.accessReasons;
     }
 
     public String getAccessMask() {

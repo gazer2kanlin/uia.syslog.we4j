@@ -39,18 +39,22 @@ public class WindowsEvent4656Test extends WindowsEventTest {
 
         WindowsEvent4656 evt = parse2Object("4656", content, Locale.US);
         Assert.assertEquals("4656", evt.getEventId());
+
         Assert.assertEquals("WIN-R9H529RIO4Y\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("WIN-R9H529RIO4Y", evt.getAccountDomain());
         Assert.assertEquals("0x1fd23", evt.getLogonId());
+
         Assert.assertEquals("0xb8", evt.getHandleId());
         Assert.assertEquals("Security", evt.getObjectServer());
         Assert.assertEquals("File", evt.getObjectType());
         Assert.assertEquals("C:\\Users\\Administrator\\testfolder\\New Text Document.txt", evt.getObjectName());
         Assert.assertEquals("0xb8", evt.getHandleId());
         Assert.assertEquals("S:AI(RA;ID;;;;WD;(\"Project_MS\",TS,0x10020,\"Transmogrifier\"))", evt.getResourceAttributes());
+
         Assert.assertEquals("0xed0", evt.getProcessId());
         Assert.assertEquals("C:\\Windows\\System32\\notepad.exe", evt.getProcessName());
+
         Assert.assertEquals("{00000000-0000-0000-0000-000000000000}", evt.getTransactionId());
         Assert.assertEquals("READ_CONTROL SYNCHRONIZE ReadData (or ListDirectory) ReadEA ReadAttributes", evt.getAccesses());
         Assert.assertEquals("0x120089", evt.getAccessMask());

@@ -42,32 +42,15 @@ public class WindowsEvent4776 extends WindowsEvent {
         return this.authenticationPackage;
     }
 
-    public void setAuthenticationPackage(String authenticationPackage) {
-        this.authenticationPackage = authenticationPackage;
-    }
-
     public String getLogonAccount() {
         return this.logonAccount;
-    }
-
-    public void setLogonAccount(String logonAccount) {
-        this.logonAccount = logonAccount;
     }
 
     public String getSourceWorkstation() {
         return this.sourceWorkstation;
     }
 
-    public void setSourceWorkstation(String sourceWorkstation) {
-        this.sourceWorkstation = sourceWorkstation;
-    }
-
     public String getErrorCode() {
         return this.errorCode;
     }
-
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
-    }
-
 }
