@@ -25,7 +25,8 @@ public class WindowsEventSampleTest extends WindowsEventTest {
 
     @Test
     public void test001() throws Exception {
-        String content = "File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx " +
+        String content = "Subject: Test Only " +
+                "File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx " +
                 "File: C:\\Windows\\System32\\Winevt\\Logs\\Archive-Security-2007-12-11-23-55-03-007.evtx ";
 
         try {

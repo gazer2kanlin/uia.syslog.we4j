@@ -68,8 +68,8 @@ public class WindowsEvent4625Test extends WindowsEventTest {
         Assert.assertEquals("NtLmSsp", evt.getLogonProcess());
         Assert.assertEquals("NTLM", evt.getAuthenticationPackage());
         Assert.assertEquals("No", evt.getTransitedServices());
-        Assert.assertEquals(null, evt.getPackageNameNTLMOnly());
-        Assert.assertEquals(0, evt.getKeyLength());
+        Assert.assertEquals("-", evt.getPackageNameNTLMOnly());
+        Assert.assertEquals(5, evt.getKeyLength());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class WindowsEvent4625Test extends WindowsEventTest {
         Assert.assertEquals(result.get("logonProcess"), "NtLmSsp");
         Assert.assertEquals(result.get("authenticationPackage"), "NTLM");
         Assert.assertEquals(result.get("transitedServices"), "No");
-        Assert.assertNull(result.get("packetNameNTLMOnly"));
-        Assert.assertNull(result.get("keyLength"));
+        Assert.assertEquals(result.get("packageNameNTLMOnly"), "-");
+        Assert.assertEquals(result.get("keyLength"), 5);
     }
 }

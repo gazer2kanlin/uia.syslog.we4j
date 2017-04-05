@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WindowsEvents>
     <WindowsEvent id="-001" desc="Test only">
+        <Property id="subject" dataType="String" ignore="true"></Property>
         <Property id="file1" translate="file" dataType="String"></Property>
         <Property id="file2" dataType="String"></Property>
     </WindowsEvent>
@@ -25,7 +26,7 @@
         <Property id="file" dataType="String"></Property>
     </WindowsEvent>
 
-    <WindowsEvent id="4611" name="LOGON_REG"  desc="A trusted logon process has been registered with the Local Security Authority">
+    <WindowsEvent id="4611" name="LOGON_REG" desc="A trusted logon process has been registered with the Local Security Authority">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -109,8 +110,8 @@
             <Property id="logonProcess" dataType="String"></Property>
             <Property id="authenticationPackage" dataType="String"></Property>
             <Property id="transitedServices" dataType="String"></Property>
-            <Property id="packageNameNTLMOnly" dataType="String" ignore="true"></Property>
-            <Property id="keyLength" dataType="Int" ignore="true"></Property>
+            <Property id="packageNameNTLMOnly" dataType="String"></Property>
+            <Property id="keyLength" dataType="Int"></Property>
         </PropertySet>
     </WindowsEvent>
 
@@ -316,6 +317,43 @@
         </PropertySet>
     </WindowsEvent>
     
+    <WindowsEvent id="4738" desc="A user account was changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="targetAccount">
+            <Property id="targetSecurityId" translate="securityId" dataType="String"></Property>
+            <Property id="targetAccountName" translate="accountName" dataType="String"></Property>
+            <Property id="targetAccountDomain" translate="accountDomain" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="attributes">
+            <Property id="samAccountName" dataType="String"></Property>
+            <Property id="displayName" dataType="String"></Property>
+            <Property id="userPrincipalName" dataType="String"></Property>
+            <Property id="homeDirectory" dataType="String"></Property>
+            <Property id="homeDrive" dataType="String"></Property>
+            <Property id="scriptPath" dataType="String"></Property>
+            <Property id="profilePath" dataType="String"></Property>
+            <Property id="userWorkstations" dataType="String"></Property>
+            <Property id="passwordLastSet" dataType="String"></Property>
+            <Property id="accountExpires" dataType="String"></Property>
+            <Property id="primaryGroupId" dataType="String"></Property>
+            <Property id="allowedToDelegateTo" dataType="String"></Property>
+            <Property id="oldUacValue" dataType="String"></Property>
+            <Property id="newUacValue" dataType="String"></Property>
+            <Property id="userAccountControl" dataType="String"></Property>
+            <Property id="userParameters" dataType="String"></Property>
+            <Property id="sidHistory" dataType="String"></Property>
+            <Property id="logonHours" dataType="Int"></Property>
+        </PropertySet>
+        <PropertySet id="additionalInformation">
+            <Property id="privileges" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+        
     <WindowsEvent id="4776" desc="The domain controller attempted to validate the credentials for an account">
         <Property id="authenticationPackage" dataType="String"></Property>
         <Property id="logonAccount" dataType="String"></Property>
@@ -535,43 +573,6 @@
         </PropertySet>
         <PropertySet id="additionalInformation">
             <Property id="weight" dataType="String"></Property>
-        </PropertySet>
-    </WindowsEvent>
-    
-    <WindowsEvent id="4738" desc="A user account was changed">
-        <PropertySet id="subject">
-            <Property id="securityId" dataType="String"></Property>
-            <Property id="accountName" dataType="String"></Property>
-            <Property id="accountDomain" dataType="String"></Property>
-            <Property id="logonId" dataType="String"></Property>
-        </PropertySet>
-        <PropertySet id="targetAccount">
-            <Property id="targetSecurityId" translate="securityId" dataType="String"></Property>
-            <Property id="targetAccountName" translate="accountName" dataType="String"></Property>
-            <Property id="targetAccountDomain" translate="accountDomain" dataType="String"></Property>
-        </PropertySet>
-        <PropertySet id="attributes">
-            <Property id="samAccountName" dataType="String"></Property>
-            <Property id="displayName" dataType="String"></Property>
-            <Property id="userPrincipalName" dataType="String"></Property>
-            <Property id="homeDirectory" dataType="String"></Property>
-            <Property id="homeDrive" dataType="String"></Property>
-            <Property id="scriptPath" dataType="String"></Property>
-            <Property id="profilePath" dataType="String"></Property>
-            <Property id="userWorkstations" dataType="String"></Property>
-            <Property id="passwordLastSet" dataType="String"></Property>
-            <Property id="accountExpires" dataType="String"></Property>
-            <Property id="primaryGroupId" dataType="String"></Property>
-            <Property id="allowedToDelegateTo" dataType="String"></Property>
-            <Property id="oldUacValue" dataType="String"></Property>
-            <Property id="newUacValue" dataType="String"></Property>
-            <Property id="userAccountControl" dataType="String"></Property>
-            <Property id="userParameters" dataType="String"></Property>
-            <Property id="sidHistory" dataType="String"></Property>
-            <Property id="logonHours" dataType="Int"></Property>
-        </PropertySet>
-        <PropertySet id="additionalInformation">
-            <Property id="privileges" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
 </WindowsEvents>
