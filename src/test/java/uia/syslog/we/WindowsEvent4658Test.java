@@ -6,7 +6,34 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4658;
+
 public class WindowsEvent4658Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  ACME\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  ACME " +
+                "Logon ID:  0x1f41e " +
+                "Object: " +
+                "Object Server: Security " +
+                "Handle ID: 0x40 " +
+                "Process Information: " +
+                "Process ID: 0x1ac " +
+                "Process Name: C:\\Windows\\System32\\cmd.exe ";
+
+        WindowsEvent4658 evt = parse2Object("4658", content, Locale.US);
+        Assert.assertEquals("4658", evt.getEventId());
+        Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("ACME", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("0x40", evt.getHandleId());
+        Assert.assertEquals("0x1ac", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\cmd.exe", evt.getProcessName());
+    }
 
     @Test
     public void testUS() throws Exception {

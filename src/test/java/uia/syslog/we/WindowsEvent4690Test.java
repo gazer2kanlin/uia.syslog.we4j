@@ -6,7 +6,35 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4690;
+
 public class WindowsEvent4690Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  ACME\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  ACME " +
+                "Logon ID:  0x1f41e " +
+                "Source Handle Information: " +
+                "Source Handle ID: 0x401d" +
+                "Source Process ID: 0x41ff " +
+                "New Handle Information: " +
+                "Target Handle ID: 0x301d" +
+                "Target Process ID: 0x31ff ";
+
+        WindowsEvent4690 evt = parse2Object("4690", content, Locale.US);
+        Assert.assertEquals("4690", evt.getEventId());
+        Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("ACME", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("0x401d", evt.getSourceHandleId());
+        Assert.assertEquals("0x41ff", evt.getSourceProcessId());
+        Assert.assertEquals("0x301d", evt.getTargetHandleId());
+        Assert.assertEquals("0x31ff", evt.getTargetProcessId());
+    }
 
     @Test
     public void testUS() throws Exception {

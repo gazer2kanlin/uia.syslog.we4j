@@ -6,7 +6,31 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4779;
+
 public class WindowsEvent4779Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Account Name:  ONE " +
+                "Account Domain:  WORKGROUP " +
+                "Logon ID:  0x1f41e " +
+                "Session: " +
+                "Session Name: -" +
+                "Additional Information: " +
+                "Client Name:  HOME" +
+                "Client Address:  192.168.5.2";
+
+        WindowsEvent4779 evt = parse2Object("4779", content, Locale.US);
+        Assert.assertEquals("4779", evt.getEventId());
+        Assert.assertEquals("ONE", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("-", evt.getSessionName());
+        Assert.assertEquals("HOME", evt.getClientName());
+        Assert.assertEquals("192.168.5.2", evt.getClientAddress());
+    }
 
     @Test
     public void testUS() throws Exception {

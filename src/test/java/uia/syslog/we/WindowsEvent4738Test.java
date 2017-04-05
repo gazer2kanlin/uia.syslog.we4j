@@ -6,7 +6,72 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4738;
+
 public class WindowsEvent4738Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  SYSTEM " +
+                "Account Name:  ONE " +
+                "Account Domain:  WORKGROUP " +
+                "Logon ID:  0x1f41e " +
+                "Target Account: " +
+                "Security ID:  MAIN\\Jack " +
+                "Account Name:  Jack " +
+                "Account Domain:  MAIN" +
+                "Attributes: " +
+                "SAM Account Name: SAM " +
+                "Display Name:  - " +
+                "User Principal Name: NO " +
+                "Home Directory: c:\\users\\guest " +
+                "Home Drive:  c:\\users\\guest\\public " +
+                "Script Path:  - " +
+                "Profile Path:  c:\\users\\guest " +
+                "User Workstations: WS " +
+                "Password Last Set: 123456 " +
+                "Account Expires:  2016/8/7 " +
+                "Primary Group ID: SYS " +
+                "Allowed To Delegate To: Y " +
+                "Old UAC Value:  0x10 " +
+                "New UAC Value:  0x4010 " +
+                "User Account Control: 'Not Delegated' - Enabled " +
+                "User Parameters:  " +
+                "SID History:  - " +
+                "Logon Hours:  21 " +
+                "Additional Information: " +
+                "Privileges: NO";
+
+        WindowsEvent4738 evt = parse2Object("4738", content, Locale.US);
+        Assert.assertEquals("4738", evt.getEventId());
+        Assert.assertEquals("SYSTEM", evt.getSecurityId());
+        Assert.assertEquals("ONE", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("MAIN\\Jack", evt.getTargetSecurityId());
+        Assert.assertEquals("Jack", evt.getTargetAccountName());
+        Assert.assertEquals("MAIN", evt.getTargetAccountDomain());
+        Assert.assertEquals("SAM", evt.getSamAccountName());
+        Assert.assertEquals("-", evt.getDisplayName());
+        Assert.assertEquals("NO", evt.getUserPrincipalName());
+        Assert.assertEquals("c:\\users\\guest", evt.getHomeDirectory());
+        Assert.assertEquals("c:\\users\\guest\\public", evt.getHomeDrive());
+        Assert.assertEquals("-", evt.getScriptPath());
+        Assert.assertEquals("c:\\users\\guest", evt.getProfilePath());
+        Assert.assertEquals("WS", evt.getUserWorkstations());
+        Assert.assertEquals("123456", evt.getPasswordLastSet());
+        Assert.assertEquals("2016/8/7", evt.getAccountExpires());
+        Assert.assertEquals("SYS", evt.getPrimaryGroupId());
+        Assert.assertEquals("Y", evt.getAllowedToDelegateTo());
+        Assert.assertEquals("0x10", evt.getOldUacValue());
+        Assert.assertEquals("0x4010", evt.getNewUacValue());
+        Assert.assertEquals("'Not Delegated' - Enabled", evt.getUserAccountControl());
+        Assert.assertEquals("", evt.getUserParameters());
+        Assert.assertEquals("-", evt.getSidHistory());
+        Assert.assertEquals(21, evt.getLogonHours());
+        Assert.assertEquals("NO", evt.getPrivileges());
+    }
 
     @Test
     public void testUS() throws Exception {
@@ -106,7 +171,7 @@ public class WindowsEvent4738Test extends WindowsEventTest {
         Assert.assertEquals(result.get("newUacValue"), "0x4010");
         Assert.assertEquals(result.get("userParameters"), "-");
         Assert.assertEquals(result.get("sidHistory"), "-");
-        Assert.assertEquals(result.get("logonHours"), "21");
+        Assert.assertEquals(result.get("logonHours"), 21);
 
         Assert.assertEquals(result.get("targetSecurityId"), "MAIN\\Jack");
         Assert.assertEquals(result.get("privileges"), "NO");

@@ -6,7 +6,26 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4647;
+
 public class WindowsEvent4647Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  SYSTEM " +
+                "Account Name:  ONE " +
+                "Account Domain:  WORKGROUP " +
+                "Logon ID:  0x1f41e " +
+                "This event is generated when a logoff ...";
+
+        WindowsEvent4647 evt = parse2Object("4647", content, Locale.US);
+        Assert.assertEquals("4647", evt.getEventId());
+        Assert.assertEquals("SYSTEM", evt.getSecurityId());
+        Assert.assertEquals("ONE", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+    }
 
     @Test
     public void testUS() throws Exception {

@@ -6,7 +6,45 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4663;
+
 public class WindowsEvent4663Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  ACME\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  ACME " +
+                "Logon ID:  0x1f41e " +
+                "Object: " +
+                "Object Server: Security " +
+                "Object Type: File " +
+                "Object Name: C:\\sharedFiles\\MasterEncryptionCode.txt " +
+                "Handle ID: 0x40 " +
+                "Resource Attributes: S:AI " +
+                "Process Information: " +
+                "Process ID: 0x1ac " +
+                "Process Name: C:\\Windows\\System32\\cmd.exe " +
+                "Access Request Information: " +
+                "Accesses: DELETE " +
+                "Access Mask: 0x10000 ";
+
+        WindowsEvent4663 evt = parse2Object("4663", content, Locale.US);
+        Assert.assertEquals("4663", evt.getEventId());
+        Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("ACME", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("Security", evt.getObjectServer());
+        Assert.assertEquals("File", evt.getObjectType());
+        Assert.assertEquals("C:\\sharedFiles\\MasterEncryptionCode.txt", evt.getObjectName());
+        Assert.assertEquals("0x40", evt.getHandleId());
+        Assert.assertEquals("0x1ac", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\cmd.exe", evt.getProcessName());
+        Assert.assertEquals("DELETE", evt.getAccesses());
+        Assert.assertEquals("0x10000", evt.getAccessMask());
+    }
 
     @Test
     public void testUS() throws Exception {

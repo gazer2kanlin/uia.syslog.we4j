@@ -6,7 +6,57 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4656;
+
 public class WindowsEvent4656Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  WIN-R9H529RIO4Y\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  WIN-R9H529RIO4Y " +
+                "Logon ID:  0x1fd23 " +
+                "Object: " +
+                "Object Server:  Security " +
+                "Object Type:  File " +
+                "Object Name:  C:\\Users\\Administrator\\testfolder\\New Text Document.txt " +
+                "Handle ID:  0xb8 " +
+                "Resource Attributes: S:AI(RA;ID;;;;WD;(\"Project_MS\",TS,0x10020,\"Transmogrifier\")) " +
+                "Process Information: " +   // maybe missing
+                "Process ID: 0xed0 " +
+                "Process Name: C:\\Windows\\System32\\notepad.exe " +
+                "Access Request Information: " +
+                "Transaction ID:  {00000000-0000-0000-0000-000000000000} " +
+                "Accesses:  READ_CONTROL " +
+                "SYNCHRONIZE " +
+                "ReadData (or ListDirectory) " +
+                "ReadEA " +
+                "ReadAttributes   " +
+                "Access Mask:  0x120089 " +
+                "Privileges Used for Access Check: - " +
+                "Restricted SID Count: 5 ";
+
+        WindowsEvent4656 evt = parse2Object("4656", content, Locale.US);
+        Assert.assertEquals("4656", evt.getEventId());
+        Assert.assertEquals("WIN-R9H529RIO4Y\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("WIN-R9H529RIO4Y", evt.getAccountDomain());
+        Assert.assertEquals("0x1fd23", evt.getLogonId());
+        Assert.assertEquals("0xb8", evt.getHandleId());
+        Assert.assertEquals("Security", evt.getObjectServer());
+        Assert.assertEquals("File", evt.getObjectType());
+        Assert.assertEquals("C:\\Users\\Administrator\\testfolder\\New Text Document.txt", evt.getObjectName());
+        Assert.assertEquals("0xb8", evt.getHandleId());
+        Assert.assertEquals("S:AI(RA;ID;;;;WD;(\"Project_MS\",TS,0x10020,\"Transmogrifier\"))", evt.getResourceAttributes());
+        Assert.assertEquals("0xed0", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\notepad.exe", evt.getProcessName());
+        Assert.assertEquals("{00000000-0000-0000-0000-000000000000}", evt.getTransactionId());
+        Assert.assertEquals("READ_CONTROL SYNCHRONIZE ReadData (or ListDirectory) ReadEA ReadAttributes", evt.getAccesses());
+        Assert.assertEquals("0x120089", evt.getAccessMask());
+        Assert.assertEquals("-", evt.getPrivilegesUsedForAccessCheck());
+        Assert.assertEquals(5, evt.getRestrictedSIDCount());
+    }
 
     @Test
     public void testUS1() throws Exception {
@@ -33,7 +83,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "ReadAttributes   " +
                 "Access Mask:  0x120089 " +
                 "Privileges Used for Access Check: - " +
-                "Restricted SID Count: 0 ";
+                "Restricted SID Count: 5 ";
 
         Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
     }
@@ -62,7 +112,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "ReadAttributes   " +
                 "Access Mask:  0x120089 " +
                 "Privileges Used for Access Check: - " +
-                "Restricted SID Count: 0 ";
+                "Restricted SID Count: 5 ";
 
         Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
     }
@@ -92,7 +142,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "ReadAttributes   " +
                 "存取遮罩:  0x120089 " +
                 "存取檢查所使用的權限: - " +
-                "限制的 SID 數目: 0 ";
+                "限制的 SID 數目: 5 ";
 
         Assert.assertEquals(16, parse2Map("4656", content, Locale.TAIWAN).size());
     }
@@ -117,6 +167,6 @@ public class WindowsEvent4656Test extends WindowsEventTest {
         Assert.assertEquals(result.get("accesses"), "READ_CONTROL SYNCHRONIZE ReadData (or ListDirectory) ReadEA ReadAttributes");
         Assert.assertEquals(result.get("accessMask"), "0x120089");
         Assert.assertEquals(result.get("privilegesUsedForAccessCheck"), "-");
-        Assert.assertEquals((Integer) result.get("restrictedSIDCount"), 0, 0);
+        Assert.assertEquals((Integer) result.get("restrictedSIDCount"), 5, 0);
     }
 }

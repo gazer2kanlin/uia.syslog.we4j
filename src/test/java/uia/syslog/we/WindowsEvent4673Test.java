@@ -6,7 +6,38 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4673;
+
 public class WindowsEvent4673Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  SYSTEM " +
+                "Account Name:  ONE " +
+                "Account Domain:  WORKGROUP " +
+                "Logon ID:  0x1f41e " +
+                "Service: " +
+                "Server:  NT Local Security Authority " +
+                "Server Name:  LsaRegisterLogonProcess() " +
+                "Process: " +
+                "Process ID:  0x238 " +
+                "Process Name:  C:\\Windows\\System32\\lsass.exe " +
+                "Service Request Information: " +
+                "Privileges:  SeTcbPrivilege ";
+
+        WindowsEvent4673 evt = parse2Object("4673", content, Locale.US);
+        Assert.assertEquals("4673", evt.getEventId());
+        Assert.assertEquals("SYSTEM", evt.getSecurityId());
+        Assert.assertEquals("ONE", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("NT Local Security Authority", evt.getServer());
+        Assert.assertEquals("LsaRegisterLogonProcess()", evt.getServerName());
+        Assert.assertEquals("0x238", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\lsass.exe", evt.getProcessName());
+        Assert.assertEquals("SeTcbPrivilege", evt.getPrivileges());
+    }
 
     @Test
     public void testUS() throws Exception {

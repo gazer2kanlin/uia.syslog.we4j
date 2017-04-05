@@ -6,7 +6,32 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4722;
+
 public class WindowsEvent4722Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  SYSTEM " +
+                "Account Name:  ONE " +
+                "Account Domain:  WORKGROUP " +
+                "Logon ID:  0x1f41e " +
+                "Target Account: " +
+                "Security ID:  MAIN\\Jack " +
+                "Account Name:  Jack " +
+                "Account Domain:  MAIN";
+
+        WindowsEvent4722 evt = parse2Object("4722", content, Locale.US);
+        Assert.assertEquals("4722", evt.getEventId());
+        Assert.assertEquals("SYSTEM", evt.getSecurityId());
+        Assert.assertEquals("ONE", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("MAIN\\Jack", evt.getTargetSecurityId());
+        Assert.assertEquals("Jack", evt.getTargetAccountName());
+        Assert.assertEquals("MAIN", evt.getTargetAccountDomain());
+    }
 
     @Test
     public void testUS() throws Exception {

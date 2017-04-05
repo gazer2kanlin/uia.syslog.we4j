@@ -74,7 +74,7 @@ public class WindowsEvent4738 extends WindowsEvent {
 
     private String sidHistory;
 
-    private String logonHours;
+    private int logonHours;
 
     private String privileges;
 
@@ -178,7 +178,7 @@ public class WindowsEvent4738 extends WindowsEvent {
         return this.sidHistory;
     }
 
-    public String getLogonHours() {
+    public int getLogonHours() {
         return this.logonHours;
     }
 

@@ -6,7 +6,49 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4648;
+
 public class WindowsEvent4648Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  ACME\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  ACME " +
+                "Logon ID:  0x1f41e " +
+                "Logon GUID:  {00000000-0000-0000-0000-000000000000} " +
+                "Account Whose Credentials Were Used: " +
+                "Account Name:  rsmith@mtg.com " +
+                "Account Domain:  WIN-R9H529RIO4Y " +
+                "Logon GUID:  {10000000-0000-0000-0000-000000000000} " +
+                "Target Server: " +
+                "Target Server Name: sp01.IceMAIL.com " +
+                "Additional Information: sp01.IceMAIL.com " +
+                "Process Information: " +
+                "Process ID: 0x1ac " +
+                "Process Name: C:\\Windows\\System32\\cmd.exe " +
+                "Network Information: " +
+                "Network Address: 0.0.0.0 " +
+                "Port: 514 ";
+
+        WindowsEvent4648 evt = parse2Object("4648", content, Locale.US);
+        Assert.assertEquals("4648", evt.getEventId());
+        Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("ACME", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("{00000000-0000-0000-0000-000000000000}", evt.getLogonGuid());
+        Assert.assertEquals("rsmith@mtg.com", evt.getCredentialsAccountName());
+        Assert.assertEquals("WIN-R9H529RIO4Y", evt.getCredentialsAccountDomain());
+        Assert.assertEquals("{10000000-0000-0000-0000-000000000000}", evt.getCredentialsLogonGuid());
+        Assert.assertEquals("sp01.IceMAIL.com", evt.getTargetServerName());
+        Assert.assertEquals("sp01.IceMAIL.com", evt.getAdditionalInformation());
+        Assert.assertEquals("0x1ac", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\cmd.exe", evt.getProcessName());
+        Assert.assertEquals("0.0.0.0", evt.getNetworkAddress());
+        Assert.assertEquals(514, evt.getPort());
+    }
 
     @Test
     public void testUS() throws Exception {

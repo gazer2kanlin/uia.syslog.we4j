@@ -6,7 +6,30 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4702;
+
 public class WindowsEvent4702Test extends WindowsEventTest {
+
+    @Test
+    public void testObject() throws Exception {
+        String content = "Subject: " +
+                "Security ID:  ACME\\Administrator " +
+                "Account Name:  Administrator " +
+                "Account Domain:  ACME " +
+                "Logon ID:  0x1f41e " +
+                "Task Information: " +
+                "Task Name: NiteWork" +
+                "Task Content: <html><body>\"good\" &nsbp <hr /></body></html>";
+
+        WindowsEvent4702 evt = parse2Object("4702", content, Locale.US);
+        Assert.assertEquals("4702", evt.getEventId());
+        Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("ACME", evt.getAccountDomain());
+        Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("NiteWork", evt.getTaskName());
+        Assert.assertEquals("<html><body>\"good\" &nsbp <hr /></body></html>", evt.getTaskNewContent());
+    }
 
     @Test
     public void testUS() throws Exception {

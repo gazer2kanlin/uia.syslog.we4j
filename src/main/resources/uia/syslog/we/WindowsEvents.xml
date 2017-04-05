@@ -288,6 +288,7 @@
             <Property id="taskNewContent" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
+  
     <WindowsEvent id="4722" name="USER_ENABLE" desc="A user account was enabled">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
@@ -569,13 +570,10 @@
             <Property id="userAccountControl" dataType="String"></Property>
             <Property id="userParameters" dataType="String"></Property>
             <Property id="sidHistory" dataType="String"></Property>
-            <Property id="logonHours" dataType="String"></Property>
+            <Property id="logonHours" dataType="Int"></Property>
         </PropertySet>
         <PropertySet id="additionalInformation">
             <Property id="privileges" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
-    
-
-    
 </WindowsEvents>

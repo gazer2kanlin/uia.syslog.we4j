@@ -1,3 +1,2 @@
 ignore:
-  - "src/main/java/uia/syslog/we/model"
   - "src/main/java/uia/syslog/we/model/xml"
