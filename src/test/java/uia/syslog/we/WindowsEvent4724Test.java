@@ -6,9 +6,9 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-import uia.syslog.we.model.WindowsEvent4647;
+import uia.syslog.we.model.WindowsEvent4724;
 
-public class WindowsEvent4647Test extends WindowsEventTest {
+public class WindowsEvent4724Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
@@ -17,14 +17,20 @@ public class WindowsEvent4647Test extends WindowsEventTest {
                 "Account Name:  ONE " +
                 "Account Domain:  WORKGROUP " +
                 "Logon ID:  0x1f41e " +
-                "This event is generated when a logoff ...";
+                "Target Account: " +
+                "Security ID:  MAIN\\Jack " +
+                "Account Name:  Jack " +
+                "Account Domain:  MAIN";
 
-        WindowsEvent4647 evt = parse2Object("4647", content, Locale.US);
-        Assert.assertEquals("4647", evt.getEventId());
+        WindowsEvent4724 evt = parse2Object("4724", content, Locale.US);
+        Assert.assertEquals("4724", evt.getEventId());
         Assert.assertEquals("SYSTEM", evt.getSecurityId());
         Assert.assertEquals("ONE", evt.getAccountName());
         Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+        Assert.assertEquals("MAIN\\Jack", evt.getTargetSecurityId());
+        Assert.assertEquals("Jack", evt.getTargetAccountName());
+        Assert.assertEquals("MAIN", evt.getTargetAccountDomain());
     }
 
     @Test
@@ -34,9 +40,12 @@ public class WindowsEvent4647Test extends WindowsEventTest {
                 "Account Name:  ONE " +
                 "Account Domain:  WORKGROUP " +
                 "Logon ID:  0x1f41e " +
-                "This event is generated when a logoff ...";
+                "Target Account: " +
+                "Security ID:  MAIN\\Jack " +
+                "Account Name:  Jack " +
+                "Account Domain:  MAIN";
 
-        Assert.assertEquals(5, parse2Map("4647", content, Locale.US).size());
+        Assert.assertNotNull(parse2Map("4724", content, Locale.US));
     }
 
     @Test
@@ -46,9 +55,12 @@ public class WindowsEvent4647Test extends WindowsEventTest {
                 "帳戶名稱:  ONE " +
                 "帳戶網域:  WORKGROUP " +
                 "登入識別碼:  0x1f41e " +
-                "初始化登出時，就會產生這個事件。無法再發生使用者初始化活動。這個事件可以解釋為登出事件。";
+                "目標帳戶: " +
+                "安全性識別碼:  MAIN\\Jack " +
+                "帳戶名稱:  Jack " +
+                "帳戶網域:  MAIN ";
 
-        Assert.assertEquals(5, parse2Map("4647", content, Locale.TAIWAN).size());
+        Assert.assertNotNull(parse2Map("4724", content, Locale.TAIWAN));
     }
 
     @Override
@@ -57,5 +69,8 @@ public class WindowsEvent4647Test extends WindowsEventTest {
         Assert.assertEquals(result.get("accountName"), "ONE");
         Assert.assertEquals(result.get("accountDomain"), "WORKGROUP");
         Assert.assertEquals(result.get("logonId"), "0x1f41e");
+        Assert.assertEquals(result.get("targetSecurityId"), "MAIN\\Jack");
+        Assert.assertEquals(result.get("targetAccountName"), "Jack");
+        Assert.assertEquals(result.get("targetAccountDomain"), "MAIN");
     }
 }

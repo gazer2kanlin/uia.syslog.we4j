@@ -89,7 +89,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "Privileges Used for Access Check: - " +
                 "Restricted SID Count: 5 ";
 
-        Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
+        Assert.assertEquals(17, parse2Map("4656", content, Locale.US).size());
     }
 
     @Test
@@ -118,7 +118,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "Privileges Used for Access Check: - " +
                 "Restricted SID Count: 5 ";
 
-        Assert.assertEquals(16, parse2Map("4656", content, Locale.US).size());
+        Assert.assertEquals(17, parse2Map("4656", content, Locale.US).size());
     }
 
     @Test
@@ -148,7 +148,7 @@ public class WindowsEvent4656Test extends WindowsEventTest {
                 "存取檢查所使用的權限: - " +
                 "限制的 SID 數目: 5 ";
 
-        Assert.assertEquals(16, parse2Map("4656", content, Locale.TAIWAN).size());
+        Assert.assertEquals(17, parse2Map("4656", content, Locale.TAIWAN).size());
     }
 
     @Override

@@ -9,7 +9,7 @@
         <PropertySet id="subject1" translate="subject">
 	        <Property id="file1" translate="file" dataType="String"></Property>
         </PropertySet>
-        <PropertySet id="subject2">
+        <PropertySet id="subject3">
     	    <Property id="file2" translate="file" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
@@ -33,6 +33,23 @@
             <Property id="accountDomain" dataType="String"></Property>
             <Property id="logonId" dataType="String"></Property>
             <Property id="logonProcessName" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4616" name="SYSTEM_CHANGE" desc="The system time was changed">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" translate="processName2" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="otherInformation" required="false">
+            <Property id="previousTime" dataType="String"></Property>
+            <Property id="newTime" dataType="String" splitStr=" "></Property>
         </PropertySet>
     </WindowsEvent>
 
@@ -134,7 +151,7 @@
         </PropertySet>
     </WindowsEvent>
     
-    <WindowsEvent id="4648" desc="A logon was attempted using explicit credentials">
+    <WindowsEvent id="4648" name="LOGON" desc="A logon was attempted using explicit credentials">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -289,7 +306,35 @@
         </PropertySet>
     </WindowsEvent>
   
-    <WindowsEvent id="4722" name="USER_ENABLE" desc="A user account was enabled">
+    <WindowsEvent id="4722" name="ACC_ENABLE" desc="A user account was enabled">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="targetAccount">
+            <Property id="targetSecurityId" translate="securityId" dataType="String"></Property>
+            <Property id="targetAccountName" translate="accountName" dataType="String"></Property>
+            <Property id="targetAccountDomain" translate="accountDomain" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4723" name="ACC_PWD_CHANGE" desc="An attempt was made to change an account's password">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="targetAccount">
+            <Property id="targetSecurityId" translate="securityId" dataType="String"></Property>
+            <Property id="targetAccountName" translate="accountName" dataType="String"></Property>
+            <Property id="targetAccountDomain" translate="accountDomain" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4724" name="ACC_PWD_RESET" desc="An attempt was made to reset an accounts password">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -303,7 +348,7 @@
         </PropertySet>
     </WindowsEvent>
     
-    <WindowsEvent id="4725" name="USER_DISABLE" desc="A user account was disabled">
+    <WindowsEvent id="4725" name="ACC_DISABLE" desc="A user account was disabled">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -317,7 +362,7 @@
         </PropertySet>
     </WindowsEvent>
     
-    <WindowsEvent id="4738" desc="A user account was changed">
+    <WindowsEvent id="4738" name="ACC_CHANGE" desc="A user account was changed">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -353,6 +398,22 @@
             <Property id="privileges" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
+
+    <WindowsEvent id="4740" name="ACC_LOCK" desc="A user account was locked out">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="accountLockedOut">
+            <Property id="lockSecurityId" translate="securityId" dataType="String"></Property>
+            <Property id="lockAccountName" translate="accountName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="additionalInformation">
+            <Property id="callerComputerName" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
         
     <WindowsEvent id="4776" desc="The domain controller attempted to validate the credentials for an account">
         <Property id="authenticationPackage" dataType="String"></Property>
@@ -361,7 +422,7 @@
         <Property id="errorCode" dataType="String"></Property>
     </WindowsEvent>
 
-    <WindowsEvent id="4779" name="SESSION" desc="A session was disconnected from a Window Station">
+    <WindowsEvent id="4778" name="SESSION_RECONN" desc="A session was reconnected to a Window Station">
         <PropertySet id="subject">
             <Property id="accountName" dataType="String"></Property>
             <Property id="accountDomain" dataType="String"></Property>
@@ -373,6 +434,81 @@
         <PropertySet id="additionalInformation">
             <Property id="clientName" dataType="String"></Property>
             <Property id="clientAddress" dataType="String" splitStr=" "></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4779" name="SESSION_DISCONN" desc="A session was disconnected from a Window Station">
+        <PropertySet id="subject">
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="session">
+            <Property id="sessionName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="additionalInformation">
+            <Property id="clientName" dataType="String"></Property>
+            <Property id="clientAddress" dataType="String" splitStr=" "></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4800" name="" desc="The workstation was locked">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+            <Property id="sessionId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4904" name="" desc="An attempt was made to register a security event source">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation" translate="processInformation2">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="eventSourceInformation">
+            <Property id="sourceName" dataType="String"></Property>
+            <Property id="eventSourceId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4905" name="" desc="An attempt was made to unregister a security event source">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="processInformation" translate="processInformation2">
+            <Property id="processId" dataType="String"></Property>
+            <Property id="processName" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="eventSourceInformation">
+            <Property id="sourceName" dataType="String"></Property>
+            <Property id="eventSourceId" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="4946" name="FW_RULE_ADD" desc="A change has been made to Windows Firewall exception list. A rule was added">
+        <Property id="profileChanged" dataType="String"></Property>
+        <PropertySet id="addedRule">
+            <Property id="ruleId" dataType="String"></Property>
+            <Property id="ruleName" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="4947" name="FW_RULE_MODIFY" desc="A change has been made to Windows Firewall exception list. A rule was modified">
+        <Property id="profileChanged" dataType="String"></Property>
+        <PropertySet id="modifiedRule">
+            <Property id="ruleId" dataType="String"></Property>
+            <Property id="ruleName" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
 
@@ -394,6 +530,91 @@
         </PropertySet>
     </WindowsEvent>
 
+    <WindowsEvent id="5058" name="" desc="Key file operation">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="cryptoParameters">
+            <Property id="providerName" translate="providerName3" dataType="String"></Property>
+            <Property id="algorithmName" dataType="String"></Property>
+            <Property id="keyName" dataType="String"></Property>
+            <Property id="keyType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="keyFileOperationInformation">
+            <Property id="filePath" dataType="String"></Property>
+            <Property id="operation" dataType="String"></Property>
+            <Property id="returnCode" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="5061" name="" desc="Cryptographic operation">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="cryptoParameters">
+            <Property id="providerName" translate="providerName3" dataType="String"></Property>
+            <Property id="algorithmName" dataType="String"></Property>
+            <Property id="keyName" dataType="String"></Property>
+            <Property id="keyType" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="cryptoOperation">
+            <Property id="operation" dataType="String"></Property>
+            <Property id="returnCode" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5140" name="NSO_ACCESS" desc="A network share object was accessed">
+        <PropertySet id="subject" translate="subject2">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="objectType" dataType="String"></Property>
+            <Property id="sourceAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+        </PropertySet>
+        <PropertySet id="shareInformation">
+            <Property id="shareName" dataType="String"></Property>
+            <Property id="sharePath" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="accessRequestInformation">
+            <Property id="accessMask" dataType="String"></Property>
+            <Property id="accesses" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
+    <WindowsEvent id="5145" name="NSO_ACCESS" desc="A network share object was checked to see whether client can be granted desired access">
+        <PropertySet id="subject" translate="subject2">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="networkInformation">
+            <Property id="objectType" dataType="String"></Property>
+            <Property id="sourceAddress" dataType="String"></Property>
+            <Property id="sourcePort" dataType="Int"></Property>
+        </PropertySet>
+        <PropertySet id="shareInformation">
+            <Property id="shareName" dataType="String"></Property>
+            <Property id="sharePath" dataType="String"></Property>
+            <Property id="relativeTargetName" dataType="String"></Property> 
+        </PropertySet>
+        <PropertySet id="accessRequestInformation">
+            <Property id="accessMask" dataType="String"></Property>
+            <Property id="accesses" dataType="String"></Property>
+            <Property id="accessCheckResults" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+    
     <WindowsEvent id="5152" name="WFP_PACKET_BLOCK" desc="The Windows Filtering Platform blocked a packet">
         <PropertySet id="applicationInformation">
             <Property id="processId" dataType="String"></Property>
@@ -575,4 +796,10 @@
             <Property id="weight" dataType="String"></Property>
         </PropertySet>
     </WindowsEvent>
+
+    <WindowsEvent id="1003" name="" desc="" />
+    <WindowsEvent id="1066" name="" desc="" />
+    <WindowsEvent id="900" name="" desc="" />
+    <WindowsEvent id="902" name="" desc="" />
+    <WindowsEvent id="903" name="" desc="" />
 </WindowsEvents>

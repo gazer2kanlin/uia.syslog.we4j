@@ -50,7 +50,7 @@ public class WindowsEventSampleTest extends WindowsEventTest {
             Assert.assertTrue(false);
         }
         catch (WindowsEventException ex) {
-            Assert.assertEquals("-002> 'subject2' can't be translated.", ex.getMessage());
+            Assert.assertEquals("-002> 'subject3' can't be translated.", ex.getMessage());
         }
     }
 
@@ -63,6 +63,18 @@ public class WindowsEventSampleTest extends WindowsEventTest {
         try {
             Map<String, Object> result = parse2Map("-003", content, Locale.US);
             Assert.assertEquals("3", result.get("logonType"));
+        }
+        catch (WindowsEventException ex) {
+        }
+    }
+
+    @Test
+    public void testLogHeader() throws Exception {
+        String content = "AUDIT_SUCCESS 帳戶已登出。 主旨: 安全性識別碼: S-1-5-21-3515248096-3037635168-1615503687-500 帳戶名稱: Administrator 帳戶網域: VM-EDU-WEB1 登入識別碼: 0x7a41d94a 登入類型: 3 當登入工作階段損毀時，就會產生這個事件。這個事件可能與使用登入識別碼數值的登入事件正面相關。登入識別碼僅有在重新啟動相同電腦之間才會是唯一的。";
+
+        try {
+            Map<String, Object> result = parse2Map("4634", content, Locale.TAIWAN);
+            Assert.assertEquals("AUDIT_SUCCESS 帳戶已登出。", result.get("logHeader"));
         }
         catch (WindowsEventException ex) {
         }

@@ -20,7 +20,8 @@ public class WindowsEvent4779Test extends WindowsEventTest {
                 "Session Name: -" +
                 "Additional Information: " +
                 "Client Name:  HOME" +
-                "Client Address:  192.168.5.2";
+                "Client Address:  192.168.5.2 " +
+                "something ...";
 
         WindowsEvent4779 evt = parse2Object("4779", content, Locale.US);
         Assert.assertEquals("4779", evt.getEventId());
@@ -42,7 +43,8 @@ public class WindowsEvent4779Test extends WindowsEventTest {
                 "Session Name: -" +
                 "Additional Information: " +
                 "Client Name:  HOME" +
-                "Client Address:  192.168.5.2";
+                "Client Address:  192.168.5.2 " +
+                "something ...";
 
         Assert.assertNotNull(parse2Map("4779", content, Locale.US));
     }
@@ -53,11 +55,12 @@ public class WindowsEvent4779Test extends WindowsEventTest {
                 "帳戶名稱:  ONE " +
                 "帳戶網域:  WORKGROUP " +
                 "登入識別碼:  0x1f41e " +
-                "Session: " +
-                "Session Name: -" +
+                "工作階段: " +
+                "工作階段名稱: -" +
                 "其他資訊: " +
-                "Client Name:  HOME" +
-                "Client Address:  192.168.5.2";
+                "用戶端名稱:  HOME" +
+                "用戶端位址: 192.168.5.2 " +
+                "當使用者中斷現有終端機服務工作階段的連線，或是使用者使用「快速切換使用者」從現有桌面切換到其他桌面，就會產生這個事件。";
 
         Assert.assertNotNull(parse2Map("4779", content, Locale.TAIWAN));
     }

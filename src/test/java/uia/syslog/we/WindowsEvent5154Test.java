@@ -50,7 +50,7 @@ public class WindowsEvent5154Test extends WindowsEventTest {
                 "Layer Name:  Listen " +
                 "Layer Run-Time ID: 40 ";
 
-        Assert.assertEquals(8, parse2Map("5154", content, Locale.US).size());
+        Assert.assertEquals(9, parse2Map("5154", content, Locale.US).size());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class WindowsEvent5154Test extends WindowsEventTest {
                 "階層名稱:  Listen " +
                 "階層執行階段識別碼: 40 ";
 
-        Assert.assertEquals(8, parse2Map("5154", content, Locale.TAIWAN).size());
+        Assert.assertEquals(9, parse2Map("5154", content, Locale.TAIWAN).size());
     }
 
     @Override

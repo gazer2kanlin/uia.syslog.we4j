@@ -19,39 +19,56 @@
 package uia.syslog.we.model;
 
 /**
- * System log.
+ * A user account was disabled.
  *
  * @author Kyle K. Lin
  *
  */
-public abstract class WindowsEvent {
+public class WindowsEvent4724 extends WindowsEvent {
 
-    private String eventSource;
+    private String securityId;
 
-    private String eventId;
+    private String accountName;
 
-    private String logHeader;
+    private String accountDomain;
 
-    /**
-     * Constructor.
-     *
-     * @param eventSource
-     * @param eventId
-     */
-    public WindowsEvent(String eventSource, String eventId) {
-        this.eventSource = eventSource;
-        this.eventId = eventId;
+    private String logonId;
+
+    private String targetSecurityId;
+
+    private String targetAccountName;
+
+    private String targetAccountDomain;
+
+    public WindowsEvent4724() {
+        super("Security-Auditing", "4724");
     }
 
-    public String getEventSource() {
-        return this.eventSource;
+    public String getSecurityId() {
+        return this.securityId;
     }
 
-    public String getEventId() {
-        return this.eventId;
+    public String getAccountName() {
+        return this.accountName;
     }
 
-    public String getLogHeader() {
-        return this.logHeader;
+    public String getAccountDomain() {
+        return this.accountDomain;
+    }
+
+    public String getLogonId() {
+        return this.logonId;
+    }
+
+    public String getTargetSecurityId() {
+        return this.targetSecurityId;
+    }
+
+    public String getTargetAccountName() {
+        return this.targetAccountName;
+    }
+
+    public String getTargetAccountDomain() {
+        return this.targetAccountDomain;
     }
 }

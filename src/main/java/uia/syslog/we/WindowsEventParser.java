@@ -85,9 +85,7 @@ public class WindowsEventParser {
             }
         }
 
-        if (this._type != null && !this._type.isIgnore()) {
-            writeProperty(content.length());
-        }
+        writeProperty(content.length());
 
         return this.properties;
     }
@@ -100,20 +98,21 @@ public class WindowsEventParser {
      * @throws WindowsEventException Raise if parsing failed.
      */
     @SuppressWarnings("unchecked")
-	public synchronized <T> T toObject(String content, WindowsEventType weType) throws WindowsEventException {
-    	Map<String, Object> map = toMap(content, weType);
-    
-    	String className = "uia.syslog.we.model.WindowsEvent" + weType.getId();
-    	
-    	Class<T> cls = null;
-    	try {
-			cls = (Class<T>) Class.forName(className);
-		} catch (ClassNotFoundException e) {
-			throw new WindowsEventException(className +" not found", e);
-		}
-    	
-    	Gson gson = new Gson();
-    	return gson.fromJson(gson.toJson(map), cls);
+    public synchronized <T> T toObject(String content, WindowsEventType weType) throws WindowsEventException {
+        Map<String, Object> map = toMap(content, weType);
+
+        String className = "uia.syslog.we.model.WindowsEvent" + weType.getId();
+
+        Class<T> cls = null;
+        try {
+            cls = (Class<T>) Class.forName(className);
+        }
+        catch (ClassNotFoundException e) {
+            throw new WindowsEventException(className + " not found", e);
+        }
+
+        Gson gson = new Gson();
+        return gson.fromJson(gson.toJson(map), cls);
     }
 
     private void walk(PropertySetType propType) throws WindowsEventException {
@@ -124,9 +123,8 @@ public class WindowsEventParser {
 
         int index = id != null ? this._content.indexOf(id + ": ", this._valueStartIndex) : -1;
         if (index >= 0) {
-            if (this._type != null && !this._type.isIgnore()) {
-                writeProperty(index);
-            }
+            writeProperty(index);
+
             this._type = null;
             this._valueStartIndex = index + id.length() + 2;
 
@@ -152,15 +150,22 @@ public class WindowsEventParser {
 
         int index = id != null ? this._content.indexOf(id + ": ", this._valueStartIndex) : -1;
         if (index >= 0) {
-            if (this._type != null && !this._type.isIgnore()) {
-                writeProperty(index);
-            }
+            writeProperty(index);
+
             this._type = propType;
             this._valueStartIndex = index + id.length() + 2;
         }
     }
 
     private void writeProperty(int valueEndIndex) throws WindowsEventException {
+        if (this._valueStartIndex < 0) {
+            this.properties.put("logHeader", this._content.substring(0, valueEndIndex).trim());
+        }
+
+        if (this._type == null || this._type.isIgnore()) {
+            return;
+        }
+
         String _value = this._content.substring(this._valueStartIndex, valueEndIndex).trim();
         if (!"".equals(this._type.getSplitStr())) {
             _value = _value.split(this._type.getSplitStr())[this._type.getValueIndex()];
