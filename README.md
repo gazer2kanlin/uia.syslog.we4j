@@ -14,10 +14,15 @@ Parse windows event to key-value pairs (Map) or POJO.
 
 * zh_TW - Traditional Chinese (繁體中文)
 
-## Event Supported (current: 42)
+## Events Supported (current: 51)
 
-|ID|Description|Key|
-|--|----|---|
+| ID | Description | Key |
+|--:|--|:--:|
+| 900 | - | - |
+| 902 | - | - |
+| 903 | - | - |
+| 1003 | - | - |
+| 1066 | - | - |
 | 1105 | Event log automatic backup | - |
 | 1105 | Event log automatic backup | - |
 | 4611 | A trusted logon process has been registered with the Local Security Authority | - |
@@ -33,6 +38,10 @@ Parse windows event to key-value pairs (Map) or POJO.
 | 4672 | Special privileges assigned to new logon | - |
 | 4673 | A privileged service was called | - |
 | 4690 | An attempt was made to duplicate a handle to an object | - |
+| 4698 | A scheduled task was created | - |
+| 4699 | A scheduled task was deleted | - |
+| 4700 | A scheduled task was enabled | - |
+| 4701 | A scheduled task was disabled | - |
 | 4702 | A scheduled task was updated | - |
 | 4722 | A user account was enabled | - |
 | 4723 | An attempt was made to change an account's password | - |
