@@ -25,10 +25,13 @@ public class WindowsEvent4779Test extends WindowsEventTest {
 
         WindowsEvent4779 evt = parse2Object("4779", content, Locale.US);
         Assert.assertEquals("4779", evt.getEventId());
+
         Assert.assertEquals("ONE", evt.getAccountName());
         Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+
         Assert.assertEquals("-", evt.getSessionName());
+
         Assert.assertEquals("HOME", evt.getClientName());
         Assert.assertEquals("192.168.5.2", evt.getClientAddress());
     }

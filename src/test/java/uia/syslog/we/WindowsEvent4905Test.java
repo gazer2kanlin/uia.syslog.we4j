@@ -6,6 +6,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4905;
+
 public class WindowsEvent4905Test extends WindowsEventTest {
 
     @Test
@@ -21,6 +23,20 @@ public class WindowsEvent4905Test extends WindowsEventTest {
                 "Event Source: " +
                 "Source Name: VSSAudit " +
                 "Event Source ID: 0x9c8e0af1";
+
+        WindowsEvent4905 evt = parse2Object("4905", content, Locale.US);
+        Assert.assertEquals("4905", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-18", evt.getSecurityId());
+        Assert.assertEquals("103PRSDB", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x3e7", evt.getLogonId());
+
+        Assert.assertEquals("0x1140", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\VSSVC.exe", evt.getProcessName());
+
+        Assert.assertEquals("VSSAudit", evt.getSourceName());
+        Assert.assertEquals("0x9c8e0af1", evt.getEventSourceId());
     }
 
     @Test

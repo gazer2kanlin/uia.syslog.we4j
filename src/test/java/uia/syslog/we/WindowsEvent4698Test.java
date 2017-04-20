@@ -6,9 +6,9 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-import uia.syslog.we.model.WindowsEvent4702;
+import uia.syslog.we.model.WindowsEvent4698;
 
-public class WindowsEvent4702Test extends WindowsEventTest {
+public class WindowsEvent4698Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
@@ -21,8 +21,8 @@ public class WindowsEvent4702Test extends WindowsEventTest {
                 "Task Name: NiteWork" +
                 "Task Content: <html><body>\"good\" &nsbp <hr /></body></html>";
 
-        WindowsEvent4702 evt = parse2Object("4702", content, Locale.US);
-        Assert.assertEquals("4702", evt.getEventId());
+        WindowsEvent4698 evt = parse2Object("4698", content, Locale.US);
+        Assert.assertEquals("4698", evt.getEventId());
 
         Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
@@ -44,7 +44,7 @@ public class WindowsEvent4702Test extends WindowsEventTest {
                 "Task Name: NiteWork" +
                 "Task Content: <html><body>\"good\" &nsbp <hr /></body></html>";
 
-        Assert.assertNotNull(parse2Map("4702", content, Locale.US));
+        Assert.assertNotNull(parse2Map("4698", content, Locale.US));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class WindowsEvent4702Test extends WindowsEventTest {
                 "工作名稱: NiteWork" +
                 "工作新內容: <html><body>\"good\" &nsbp <hr /></body></html>";
 
-        Assert.assertNotNull(parse2Map("4702", content, Locale.TAIWAN));
+        Assert.assertNotNull(parse2Map("4698", content, Locale.TAIWAN));
     }
 
     @Override

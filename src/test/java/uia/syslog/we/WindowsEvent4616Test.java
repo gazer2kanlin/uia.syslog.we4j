@@ -6,10 +6,38 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4616;
+
 public class WindowsEvent4616Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
+        String content = "AUDIT_SUCCESS 系統時間已經變更。 " +
+                "Subject: " +
+                "Security ID: S-1-5-19 " +
+                "Account Name: LOCAL SERVICE " +
+                "Account Domain: NT AUTHORITY " +
+                "Logon ID: 0x3e5 " +
+                "Process Information: " +
+                "Process ID: 0x3a0 " +
+                "Name: C:\\Windows\\System32\\svchost.exe " +
+                "Previous Time: 2017-04-16T17:00:17.117145200Z " +
+                "New Time: 2017-04-16T17:00:17.117145201Z " +
+                "當系統時間改變時，就會產生此事件。對於以系統權限執行的 Windows 時間服務而言，定期變更系統時間是正常的。其他的系統時間變更則可能表示有人意圖竄改電腦。";
+
+        WindowsEvent4616 evt = parse2Object("4616", content, Locale.US);
+        Assert.assertEquals("4616", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-19", evt.getSecurityId());
+        Assert.assertEquals("LOCAL SERVICE", evt.getAccountName());
+        Assert.assertEquals("NT AUTHORITY", evt.getAccountDomain());
+        Assert.assertEquals("0x3e5", evt.getLogonId());
+
+        Assert.assertEquals("0x3a0", evt.getProcessId());
+        Assert.assertEquals("C:\\Windows\\System32\\svchost.exe", evt.getProcessName());
+
+        Assert.assertEquals("2017-04-16T17:00:17.117145200Z", evt.getPreviousTime());
+        Assert.assertEquals("2017-04-16T17:00:17.117145201Z", evt.getNewTime());
     }
 
     @Test

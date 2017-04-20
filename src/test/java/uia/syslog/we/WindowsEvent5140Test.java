@@ -6,17 +6,53 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent5140;
+
 public class WindowsEvent5140Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
+        String content = "AUDIT_SUCCESS 已存取網路共用物件。 " +
+                "Subject: " +
+                "Security ID: S-1-5-20 " +
+                "Account Name: Administrator " +
+                "Account Domain: VM-EDU-WEB1 " +
+                "Logon ID: 0x151160206 " +
+                "Network Information: " +
+                "Object Type: File " +
+                "Source Address: ::1 " +
+                "Source Port: 54960 " +
+                "Share Information: " +
+                "Share Name: \\*\\C$ " +
+                "Share Path: \\??\\C:\\ " +
+                "Access Request Information: " +
+                "Access Mask: 0x1 " +
+                "Accesses: ReadData (或 ListDirectory) ";
+
+        WindowsEvent5140 evt = parse2Object("5140", content, Locale.US);
+        Assert.assertEquals("5140", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-20", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("VM-EDU-WEB1", evt.getAccountDomain());
+        Assert.assertEquals("0x151160206", evt.getLogonId());
+
+        Assert.assertEquals("File", evt.getObjectType());
+        Assert.assertEquals("::1", evt.getSourceAddress());
+        Assert.assertEquals(54960, evt.getSourcePort());
+
+        Assert.assertEquals("\\*\\C$", evt.getShareName());
+        Assert.assertEquals("\\??\\C:\\", evt.getSharePath());
+
+        Assert.assertEquals("0x1", evt.getAccessMask());
+        Assert.assertEquals("ReadData (或 ListDirectory)", evt.getAccesses());
     }
 
     @Test
     public void testUS() throws Exception {
         String content = "AUDIT_SUCCESS 已存取網路共用物件。 " +
                 "Subject: " +
-                "Security ID: S-1-5-21-3515248096-3037635168-1615503687-500 " +
+                "Security ID: S-1-5-20 " +
                 "Account Name: Administrator " +
                 "Account Domain: VM-EDU-WEB1 " +
                 "Logon ID: 0x151160206 " +
@@ -38,7 +74,7 @@ public class WindowsEvent5140Test extends WindowsEventTest {
     public void testTW() throws Exception {
         String content = "AUDIT_SUCCESS 已存取網路共用物件。 " +
                 "主體: " +
-                "安全性識別碼: S-1-5-21-3515248096-3037635168-1615503687-500 " +
+                "安全性識別碼: S-1-5-20 " +
                 "帳戶名稱: Administrator " +
                 "帳戶網域: VM-EDU-WEB1 " +
                 "登入識別碼: 0x151160206 " +
@@ -58,7 +94,7 @@ public class WindowsEvent5140Test extends WindowsEventTest {
 
     @Override
     protected void validate(Map<String, Object> result) {
-        Assert.assertEquals(result.get("securityId"), "S-1-5-21-3515248096-3037635168-1615503687-500");
+        Assert.assertEquals(result.get("securityId"), "S-1-5-20");
         Assert.assertEquals(result.get("accountName"), "Administrator");
         Assert.assertEquals(result.get("accountDomain"), "VM-EDU-WEB1");
         Assert.assertEquals(result.get("logonId"), "0x151160206");

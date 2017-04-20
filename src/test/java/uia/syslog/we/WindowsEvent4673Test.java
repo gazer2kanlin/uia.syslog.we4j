@@ -28,14 +28,18 @@ public class WindowsEvent4673Test extends WindowsEventTest {
 
         WindowsEvent4673 evt = parse2Object("4673", content, Locale.US);
         Assert.assertEquals("4673", evt.getEventId());
+
         Assert.assertEquals("S-1-5-21-669216072-2446163755-4094068255-500", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("103PRS", evt.getAccountDomain());
         Assert.assertEquals("0x91d84b17", evt.getLogonId());
+
         Assert.assertEquals("Security Account Manager", evt.getServer());
         Assert.assertEquals("Security Account", evt.getServerName());
+
         Assert.assertEquals("0x218", evt.getProcessId());
         Assert.assertEquals("C:\\Windows\\System32\\lsass.exe", evt.getProcessName());
+
         Assert.assertEquals("SeTcbPrivilege", evt.getPrivileges());
     }
 

@@ -23,6 +23,7 @@ public class WindowsEvent4672Test extends WindowsEventTest {
 
         WindowsEvent4672 evt = parse2Object("4672", content, Locale.US);
         Assert.assertEquals("4672", evt.getEventId());
+
         Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("ACME", evt.getAccountDomain());

@@ -6,10 +6,50 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent5145;
+
 public class WindowsEvent5145Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
+        String content = "AUDIT_SUCCESS 已檢查網路共用物件，查看是否可授與用戶端想要的存取權。 " +
+                "Subject: " +
+                "Security ID: S-1-5-21-3515248096-3037635168-1615503687-500 " +
+                "Account Name: Administrator " +
+                "Account Domain: VM-EDU-WEB1 " +
+                "Logon ID: 0x151160206 " +
+                "Network Information: " +
+                "Object Type: File " +
+                "Source Address: ::1 " +
+                "Source Port: 54960 " +
+                "Share Information: " +
+                "Share Name: \\*\\C$ " +
+                "Share Path: \\??\\C:\\ " +
+                "Relative Target Name: Users\\Administrator\\Desktop " +
+                "Access Request Information: " +
+                "Access Mask: 0x100080 " +
+                "Accesses: SYNCHRONIZE ReadAttributes " +
+                "Access Check Results: -";
+
+        WindowsEvent5145 evt = parse2Object("5145", content, Locale.US);
+        Assert.assertEquals("5145", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-21-3515248096-3037635168-1615503687-500", evt.getSecurityId());
+        Assert.assertEquals("Administrator", evt.getAccountName());
+        Assert.assertEquals("VM-EDU-WEB1", evt.getAccountDomain());
+        Assert.assertEquals("0x151160206", evt.getLogonId());
+
+        Assert.assertEquals("File", evt.getObjectType());
+        Assert.assertEquals("::1", evt.getSourceAddress());
+        Assert.assertEquals(54960, evt.getSourcePort());
+
+        Assert.assertEquals("\\*\\C$", evt.getShareName());
+        Assert.assertEquals("\\??\\C:\\", evt.getSharePath());
+        Assert.assertEquals("Users\\Administrator\\Desktop", evt.getRelativeTargetName());
+
+        Assert.assertEquals("0x100080", evt.getAccessMask());
+        Assert.assertEquals("SYNCHRONIZE ReadAttributes", evt.getAccesses());
+        Assert.assertEquals("-", evt.getAccessCheckResults());
     }
 
     @Test

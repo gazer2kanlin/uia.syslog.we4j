@@ -6,10 +6,24 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4946;
+
 public class WindowsEvent4946Test extends WindowsEventTest {
 
     @Test
     public void testObject() throws Exception {
+        String content = "AUDIT_SUCCESS Windows 防火牆的例外清單已變更。規則已經新增。 " +
+                "Profile Changed: All " +
+                "Added Rule: " +
+                "Rule ID: {CD8D2D3C-0794-4B78-8D89-0CBE779C5D03} " +
+                "Rule Name: 8009";
+
+        WindowsEvent4946 evt = parse2Object("4946", content, Locale.US);
+        Assert.assertEquals("4946", evt.getEventId());
+
+        Assert.assertEquals("All", evt.getProfileChanged());
+        Assert.assertEquals("{CD8D2D3C-0794-4B78-8D89-0CBE779C5D03}", evt.getRuleId());
+        Assert.assertEquals("8009", evt.getRuleName());
     }
 
     @Test

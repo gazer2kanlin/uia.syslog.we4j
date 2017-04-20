@@ -293,6 +293,58 @@
         </PropertySet>
     </WindowsEvent>
 
+    <WindowsEvent id="4698" name="SCH_TASK_CREATE" desc="A scheduled task was created">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="taskInformation">
+            <Property id="taskName" dataType="String"></Property>
+            <Property id="taskNewContent" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4699" name="SCH_TASK_DELETE" desc="A scheduled task was deleted">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="taskInformation">
+            <Property id="taskName" dataType="String"></Property>
+            <Property id="taskNewContent" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4700" name="SCH_TASK_ENABLE" desc="A scheduled task was enabled">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="taskInformation">
+            <Property id="taskName" dataType="String"></Property>
+            <Property id="taskNewContent" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
+    <WindowsEvent id="4701" name="SCH_TASK_ENABLE" desc="A scheduled task was disabled">
+        <PropertySet id="subject">
+            <Property id="securityId" dataType="String"></Property>
+            <Property id="accountName" dataType="String"></Property>
+            <Property id="accountDomain" dataType="String"></Property>
+            <Property id="logonId" dataType="String"></Property>
+        </PropertySet>
+        <PropertySet id="taskInformation">
+            <Property id="taskName" dataType="String"></Property>
+            <Property id="taskNewContent" dataType="String"></Property>
+        </PropertySet>
+    </WindowsEvent>
+
     <WindowsEvent id="4702" name="SCH_TASK_UPDATE" desc="A scheduled task was updated">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
@@ -462,7 +514,7 @@
         </PropertySet>
     </WindowsEvent>
 
-    <WindowsEvent id="4904" name="" desc="An attempt was made to register a security event source">
+    <WindowsEvent id="4904" name="SECURITY_REG" desc="An attempt was made to register a security event source">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -479,7 +531,7 @@
         </PropertySet>
     </WindowsEvent>
 
-    <WindowsEvent id="4905" name="" desc="An attempt was made to unregister a security event source">
+    <WindowsEvent id="4905" name="SECURITY_UNREG" desc="An attempt was made to unregister a security event source">
         <PropertySet id="subject">
             <Property id="securityId" dataType="String"></Property>
             <Property id="accountName" dataType="String"></Property>
@@ -802,4 +854,5 @@
     <WindowsEvent id="900" name="" desc="" />
     <WindowsEvent id="902" name="" desc="" />
     <WindowsEvent id="903" name="" desc="" />
+
 </WindowsEvents>

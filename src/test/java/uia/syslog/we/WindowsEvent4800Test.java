@@ -6,6 +6,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4800;
+
 public class WindowsEvent4800Test extends WindowsEventTest {
 
     @Test
@@ -16,6 +18,15 @@ public class WindowsEvent4800Test extends WindowsEventTest {
                 "Account Domain: WORKGROUP " +
                 "Logon ID: 0x3e7 " +
                 "Session ID: 21";
+
+        WindowsEvent4800 evt = parse2Object("4800", content, Locale.US);
+        Assert.assertEquals("4800", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-18", evt.getSecurityId());
+        Assert.assertEquals("103PRSDB", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x3e7", evt.getLogonId());
+        Assert.assertEquals("21", evt.getSessionId());
     }
 
     @Test

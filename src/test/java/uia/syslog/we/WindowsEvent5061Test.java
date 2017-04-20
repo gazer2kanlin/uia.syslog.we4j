@@ -6,6 +6,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent5061;
+
 public class WindowsEvent5061Test extends WindowsEventTest {
 
     @Test
@@ -24,6 +26,21 @@ public class WindowsEvent5061Test extends WindowsEventTest {
                 "Operation: 從檔案讀取必要金鑰。 " +
                 "Return Code: 0x0";
 
+        WindowsEvent5061 evt = parse2Object("5061", content, Locale.US);
+        Assert.assertEquals("5061", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-20", evt.getSecurityId());
+        Assert.assertEquals("103PRSDB", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x3e4", evt.getLogonId());
+
+        Assert.assertEquals("Microsoft Software Key Storage Provider", evt.getProviderName());
+        Assert.assertEquals("無法使用。", evt.getAlgorithmName());
+        Assert.assertEquals("TSSecKeySet1", evt.getKeyName());
+        Assert.assertEquals("電腦金鑰。", evt.getKeyType());
+
+        Assert.assertEquals("從檔案讀取必要金鑰。", evt.getOperation());
+        Assert.assertEquals("0x0", evt.getReturnCode());
     }
 
     @Test

@@ -26,12 +26,15 @@ public class WindowsEvent4690Test extends WindowsEventTest {
 
         WindowsEvent4690 evt = parse2Object("4690", content, Locale.US);
         Assert.assertEquals("4690", evt.getEventId());
+
         Assert.assertEquals("ACME\\Administrator", evt.getSecurityId());
         Assert.assertEquals("Administrator", evt.getAccountName());
         Assert.assertEquals("ACME", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+
         Assert.assertEquals("0x401d", evt.getSourceHandleId());
         Assert.assertEquals("0x41ff", evt.getSourceProcessId());
+
         Assert.assertEquals("0x301d", evt.getTargetHandleId());
         Assert.assertEquals("0x31ff", evt.getTargetProcessId());
     }

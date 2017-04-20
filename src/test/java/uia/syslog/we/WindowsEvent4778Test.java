@@ -6,6 +6,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4778;
+
 public class WindowsEvent4778Test extends WindowsEventTest {
 
     @Test
@@ -20,6 +22,18 @@ public class WindowsEvent4778Test extends WindowsEventTest {
                 "Client Name: J00A2054 " +
                 "Client Address: 211.75.72.225 " +
                 "當使用者重新連線到現有的終端機服務工作階段，或使用者使用「快速切換使用者」切換到現有桌面，就會產生這個事件。";
+
+        WindowsEvent4778 evt = parse2Object("4778", content, Locale.US);
+        Assert.assertEquals("4778", evt.getEventId());
+
+        Assert.assertEquals("103PRSDB", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x3e7", evt.getLogonId());
+
+        Assert.assertEquals("RDP-Tcp#0", evt.getSessionName());
+
+        Assert.assertEquals("J00A2054", evt.getClientName());
+        Assert.assertEquals("211.75.72.225", evt.getClientAddress());
     }
 
     @Test

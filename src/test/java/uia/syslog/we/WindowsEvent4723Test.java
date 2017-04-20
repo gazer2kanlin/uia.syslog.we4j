@@ -24,10 +24,12 @@ public class WindowsEvent4723Test extends WindowsEventTest {
 
         WindowsEvent4723 evt = parse2Object("4723", content, Locale.US);
         Assert.assertEquals("4723", evt.getEventId());
+
         Assert.assertEquals("SYSTEM", evt.getSecurityId());
         Assert.assertEquals("ONE", evt.getAccountName());
         Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
         Assert.assertEquals("0x1f41e", evt.getLogonId());
+
         Assert.assertEquals("MAIN\\Jack", evt.getTargetSecurityId());
         Assert.assertEquals("Jack", evt.getTargetAccountName());
         Assert.assertEquals("MAIN", evt.getTargetAccountDomain());

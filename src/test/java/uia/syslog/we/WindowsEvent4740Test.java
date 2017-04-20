@@ -6,6 +6,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import uia.syslog.we.model.WindowsEvent4740;
+
 public class WindowsEvent4740Test extends WindowsEventTest {
 
     @Test
@@ -15,12 +17,24 @@ public class WindowsEvent4740Test extends WindowsEventTest {
                 "Account Name: 103PRSDB " +
                 "Account Domain: WORKGROUP " +
                 "Logon ID: 0x3e7 " +
-                "Process: " +
-                "Process ID: 0x1140 " +
-                "Process Name: C:\\Windows\\System32\\VSSVC.exe " +
-                "Event Source: " +
-                "Source Name: VSSAudit " +
-                "Event Source ID: 0x9c8e0af1";
+                "Account That Was Locked Out: " +
+                "Security ID: S-1-5-21-669216072-2446163755 " +
+                "Account Name: Administrator " +
+                "Additional Information: " +
+                "Caller Computer Name: 103PRSDB1";
+
+        WindowsEvent4740 evt = parse2Object("4740", content, Locale.US);
+        Assert.assertEquals("4740", evt.getEventId());
+
+        Assert.assertEquals("S-1-5-18", evt.getSecurityId());
+        Assert.assertEquals("103PRSDB", evt.getAccountName());
+        Assert.assertEquals("WORKGROUP", evt.getAccountDomain());
+        Assert.assertEquals("0x3e7", evt.getLogonId());
+
+        Assert.assertEquals("S-1-5-21-669216072-2446163755", evt.getLockSecurityId());
+        Assert.assertEquals("Administrator", evt.getLockAccountName());
+
+        Assert.assertEquals("103PRSDB1", evt.getCallerComputerName());
     }
 
     @Test
