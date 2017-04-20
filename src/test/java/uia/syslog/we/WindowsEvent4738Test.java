@@ -1,3 +1,21 @@
+/*******************************************************************************
+ * Copyright 2017 UIA
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements. See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *******************************************************************************/
 package uia.syslog.we;
 
 import java.util.Locale;
@@ -113,36 +131,6 @@ public class WindowsEvent4738Test extends WindowsEventTest {
 
     @Test
     public void testTW() throws Exception {
-        String c = "主旨: 安全性識別碼: S-1-5-21-669216072-2446163755-4094068255-500 " +
-                "帳戶名稱: Administrator " +
-                "帳戶網域: 103SCHPRS " +
-                "登入識別碼: 0xf0b8ce33 " +
-                "目標帳戶: " +
-                "安全性識別碼: S-1-5-21-669216072-2446163755-4094068255-1000 " +
-                "帳戶名稱: hyweb " +
-                "帳戶網域: 103SCHPRS " +
-                "變更的屬性: " +
-                "SAM 帳戶名稱: hyweb " +
-                "顯示名稱: hyweb " +
-                "使用者主體名稱: - " +
-                "主目錄: <數值未設定> " +
-                "主磁碟: <數值未設定> " +
-                "指令檔路徑: <數值未設定> " +
-                "設定檔路徑: <數值未設定> " +
-                "使用者工作站: <數值未設定> " +
-                "最近的密碼設定: 2016/12/19 上午 09:35:22 " +
-                "帳戶有效期: <永不> " +
-                "主要群組識別碼: 513 " +
-                "允許委派於: - " +
-                "舊的 UAC 數值: 0x10 " +
-                "新的 UAC 數值: 0x11 " +
-                "使用者帳戶控制: 帳戶已停用 " +
-                "使用者參數: <數值未設定> " +
-                "SID 歷程記錄: - " +
-                "登入時段: 全部 " +
-                "其他資訊: " +
-                "特殊權限: -";
-
         String content = "主旨: " +
                 "安全性識別碼:  SYSTEM " +
                 "帳戶名稱:  ONE " +
