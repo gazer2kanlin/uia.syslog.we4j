@@ -14,15 +14,15 @@ Parse windows event to key-value pairs (Map) or POJO.
 
 * zh_TW - Traditional Chinese (繁體中文)
 
-## Events Supported (current: 51)
+## Events Supported (current: 60)
 
-| ID | Description | Key |
+| ID | Description | Tags |
 |--:|--|:--:|
-| 900 | - | - |
-| 902 | - | - |
-| 903 | - | - |
-| 1003 | - | - |
-| 1066 | - | - |
+| __*900__ | - | - |
+| __*902__ | - | - |
+| __*903__ | - | - |
+| __*1003__ | - | - |
+| __*1066__ | - | - |
 | 1105 | Event log automatic backup | - |
 | 1105 | Event log automatic backup | - |
 | 4611 | A trusted logon process has been registered with the Local Security Authority | - |
@@ -34,6 +34,8 @@ Parse windows event to key-value pairs (Map) or POJO.
 | 4648 | A logon was attempted using explicit credentials | - |
 | 4656 | A handle to an object was requested | - |
 | 4658 | The handle to an object was closed | - |
+| 4660 | An object was deleted | - |
+| 4664 | An attempt was made to create a hard link | - |
 | 4663 | An attempt was made to access an object | - |
 | 4672 | Special privileges assigned to new logon | - |
 | 4673 | A privileged service was called | - |
@@ -47,20 +49,26 @@ Parse windows event to key-value pairs (Map) or POJO.
 | 4723 | An attempt was made to change an account's password | - |
 | 4724 | An attempt was made to reset an accounts password | - |
 | 4725 | A user account was disabled | - |
+| 4726 | A user account was deleted | - |
 | 4738 | A user account was changed | - |
 | 4740 | A user account was locked out | - |
+| 4767 | A user account was unlocked | - |
 | 4776 | The domain controller attempted to validate the credentials for an account | - |
 | 4778 | A session was reconnected to a Window Station | - |
 | 4779 | A session was disconnected from a Window Station | - |
 | 4800 | The workstation was locked | - |
+| 4801 | The workstation was unlocked | - |
 | 4904 | An attempt was made to register a security event source | - |
 | 4905 | An attempt was made to unregister a security event source | - |
+| 4907 | Auditing settings on object were changed | - |
 | 4946 | A change has been made to Windows Firewall exception list. A rule was added | - |
 | 4947 | A change has been made to Windows Firewall exception list. A rule was modified | - |
 | 4985 | A logon was attempted using explicit credentials | - |
+| __*5024__ | __The Windows Firewall Service has started successfully__ | - |
 | 5058 | Key file operation | - |
 | 5061 | Cryptographic operation | - |
 | 5140 | A network share object was accessed | - |
+| 5142 | A network share object was added | - |
 | 5145 | A network share object was checked to see whether client can be granted desired access | - |
 | 5152 | The Windows Filtering Platform blocked a packet | - |
 | 5154 | The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections | - |
@@ -70,6 +78,7 @@ Parse windows event to key-value pairs (Map) or POJO.
 | 5447 | A Windows Filtering Platform filter has been changed | - |
 | 5448 | A Windows Filtering Platform provider has been changed | - |
 | 5450 | A Windows Filtering Platform sub-layer has been changed | - |
+| __*5478__ | __IPsec Services has started successfully__ | - |
 
 ## Example
 

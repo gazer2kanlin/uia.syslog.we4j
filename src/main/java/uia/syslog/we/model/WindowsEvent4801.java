@@ -9,7 +9,7 @@
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,12 +19,12 @@
 package uia.syslog.we.model;
 
 /**
- * The workstation was locked.
+ * The workstation was unlocked.
  *
  * @author Kyle K. Lin
  *
  */
-public class WindowsEvent4800 extends WindowsEvent {
+public class WindowsEvent4801 extends WindowsEvent {
 
     private String securityId;
 
@@ -36,8 +36,8 @@ public class WindowsEvent4800 extends WindowsEvent {
 
     private String sessionId;
 
-    public WindowsEvent4800() {
-        super("Security-Auditing", "4800");
+    public WindowsEvent4801() {
+        super("Security-Auditing", "4801");
     }
 
     public String getSecurityId() {

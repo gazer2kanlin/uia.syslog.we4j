@@ -9,7 +9,7 @@
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- *  
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -34,7 +34,14 @@ public abstract class AbstractPropertyType {
     protected String translate;
 
     @Attribute(required = false)
+    protected String assignStr;
+
+    @Attribute(required = false)
     protected Boolean required;
+
+    public AbstractPropertyType() {
+        this.assignStr = ": ";
+    }
 
     public String getId() {
         return this.id;
@@ -42,6 +49,14 @@ public abstract class AbstractPropertyType {
 
     public void setId(String value) {
         this.id = value.trim();
+    }
+
+    public String getAssignStr() {
+        return this.assignStr == null ? ": " : this.assignStr;
+    }
+
+    public void setAssignStr(String assignStr) {
+        this.assignStr = assignStr;
     }
 
     public String getTranslate() {

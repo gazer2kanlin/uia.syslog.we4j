@@ -9,7 +9,7 @@
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- *  
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -121,12 +121,12 @@ public class WindowsEventParser {
             throw new WindowsEventException(this._event + "> '" + propType.getId() + "' can't be translated.");
         }
 
-        int index = id != null ? this._content.indexOf(id + ": ", this._valueStartIndex) : -1;
+        int index = id != null ? this._content.indexOf(id + propType.getAssignStr(), this._valueStartIndex) : -1;
         if (index >= 0) {
             writeProperty(index);
 
             this._type = null;
-            this._valueStartIndex = index + id.length() + 2;
+            this._valueStartIndex = index + id.length() + propType.getAssignStr().length();
 
         }
 
@@ -148,12 +148,12 @@ public class WindowsEventParser {
             throw new WindowsEventException(this._event + "> '" + propType.getId() + "' can't be translated.");
         }
 
-        int index = id != null ? this._content.indexOf(id + ": ", this._valueStartIndex) : -1;
+        int index = id != null ? this._content.indexOf(id + propType.getAssignStr(), this._valueStartIndex) : -1;
         if (index >= 0) {
             writeProperty(index);
 
             this._type = propType;
-            this._valueStartIndex = index + id.length() + 2;
+            this._valueStartIndex = index + id.length() + propType.getAssignStr().length();
         }
     }
 

@@ -23,13 +23,15 @@
             </choice>
         </sequence>
         <attribute name="id" type="string" use="required" />
-        <attribute name="name" type="string" use="required" />
+        <attribute name="tags" type="string" use="required" />
         <attribute name="desc" type="string" />
     </complexType>
 
     <complexType name="AbstractPropertyType" abstract="true">
         <attribute name="id" type="string" use="required" />
         <attribute name="required" type="boolean" default="true" />
+        <attribute name="translate" type="string" />
+        <attribute name="assignStr" type="string" />
     </complexType>
     <complexType name="PropertySetType">
         <complexContent>
@@ -46,10 +48,9 @@
     <complexType name="PropertyType">
         <complexContent>
             <extension base="uia:AbstractPropertyType">
-		        <attribute name="name" type="string" />
 		        <attribute name="dataType" type="string" use="required" />
 		        <attribute name="ignore" type="boolean" default="false" />
-		        <attribute name="valueIndex" type="int" default="0" />
+		        <attribute name="valueIndex" type="int" />
 		        <attribute name="splitStr" type="string" default="" />
             </extension>
         </complexContent>

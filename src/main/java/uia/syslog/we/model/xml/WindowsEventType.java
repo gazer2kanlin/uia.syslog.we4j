@@ -9,7 +9,7 @@
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- *  
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -33,8 +33,8 @@ import org.simpleframework.xml.ElementListUnion;
 public class WindowsEventType {
 
     @ElementListUnion({
-            @ElementList(entry = "PropertySet", inline = true, type = PropertySetType.class, required = false),
-            @ElementList(entry = "Property", inline = true, type = PropertyType.class, required = false)
+        @ElementList(entry = "PropertySet", inline = true, type = PropertySetType.class, required = false),
+        @ElementList(entry = "Property", inline = true, type = PropertyType.class, required = false)
     })
     protected List<AbstractPropertyType> propertySetOrProperty;
 
@@ -42,7 +42,7 @@ public class WindowsEventType {
     protected String id;
 
     @Attribute(required = false)
-    protected String name;
+    protected String tags;
 
     @Attribute(required = false)
     protected String desc;
@@ -62,12 +62,12 @@ public class WindowsEventType {
         this.id = value;
     }
 
-    public String getName() {
-        return this.name == null ? this.id : this.name;
+    public String getTags() {
+        return this.tags;
     }
 
-    public void setName(String value) {
-        this.name = value;
+    public void setTags(String value) {
+        this.tags = value;
     }
 
     public String getDesc() {
